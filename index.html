@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Especialistas en extintores, recarga, inspección y seguridad industrial. Soluciones profesionales contra incendios con cumplimiento NFPA y NTC 2885." />
+  <meta name="keywords" content="extintores, recarga de extintores, seguridad industrial, incendios, NFPA, NTC 2885, señalización, equipos contra incendio" />
+  <meta name="author" content="Servicios & Seguridad Del Caribe" />
+  <meta property="og:title" content="Servicios & Seguridad Del Caribe – Protección Contra Incendios" />
+  <meta property="og:description" content="Especialistas en extintores, recarga, inspección y seguridad industrial." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200" />
+  <title>Servicios & Seguridad Del Caribe</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Google Fonts: Barlow Condensed + DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            flame: '#E63946',
+            'flame-dark': '#B02030',
+            'flame-light': '#FF6B78',
+            ink: '#1A1A1A',
+            'ink-soft': '#2C2C2C',
+            'ash': '#F5F5F5',
+            'steel': '#6B7280',
+          },
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="font-body bg-white text-ink antialiased">
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-flame rounded-lg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <i class="fas fa-fire text-white text-lg"></i>
+          </div>
+          <div class="leading-tight">
+            <span class="font-display font-900 text-xl tracking-wide text-white nav-logo">SERVICIOS & SEGURIDAD </span>
+            <span class="block text-xs font-500 text-white/70 nav-logo tracking-widest uppercase">DEL CARIBE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#servicios" class="nav-link text-sm font-500 text-white/80 hover:text-white transition-colors">Servicios</a>
+          <a href="#catalogo" class="nav-link text-sm font-500 text-white/80 hover:text-white transition-colors">Catálogo</a>
+          <a href="#calculadora" class="nav-link text-sm font-500 text-white/80 hover:text-white transition-colors">Calculadora</a>
+          <a href="#normativa" class="nav-link text-sm font-500 text-white/80 hover:text-white transition-colors">Normativa</a>
+          <a href="#contacto" class="nav-link text-sm font-500 text-white/80 hover:text-white transition-colors">Contacto</a>
+          <a href="https://wa.me/573000000000" target="_blank"
+            class="bg-flame hover:bg-flame-dark text-white text-sm font-600 px-5 py-2.5 rounded-full shadow-lg hover:shadow-flame/40 transition-all duration-300 flex items-center gap-2">
+            <i class="fab fa-whatsapp"></i> Cotizar
+          </a>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <button id="menu-btn" class="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
+          <i class="fas fa-bars text-xl" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-ink-soft border-t border-white/10">
+      <div class="px-4 py-4 space-y-1">
+        <a href="#servicios" class="mobile-nav-link block px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Servicios</a>
+        <a href="#catalogo" class="mobile-nav-link block px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Catálogo</a>
+        <a href="#calculadora" class="mobile-nav-link block px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Calculadora</a>
+        <a href="#normativa" class="mobile-nav-link block px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Normativa</a>
+        <a href="#contacto" class="mobile-nav-link block px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Contacto</a>
+        <a href="https://wa.me/573000000000" target="_blank"
+          class="block mt-2 bg-flame text-white text-center font-600 px-4 py-3 rounded-lg">
+          <i class="fab fa-whatsapp mr-2"></i>Cotizar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section id="inicio" class="hero-section relative min-h-screen flex items-center overflow-hidden">
+      <!-- Background -->
+      <div class="hero-bg absolute inset-0"></div>
+      <div class="hero-overlay absolute inset-0"></div>
+      <!-- Grid lines decoration -->
+      <div class="hero-grid absolute inset-0 opacity-10"></div>
+
+      <!-- Floating badges -->
+      <div class="badge-float badge-1 hidden lg:flex absolute top-1/4 right-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 flex-col items-center gap-1 text-white">
+        <i class="fas fa-certificate text-flame text-2xl"></i>
+        <span class="text-xs font-600 tracking-wider">NFPA</span>
+        <span class="text-xs text-white/60">Certificado</span>
+      </div>
+      <div class="badge-float badge-2 hidden lg:flex absolute bottom-1/3 right-32 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 flex-col items-center gap-1 text-white">
+        <i class="fas fa-shield-halved text-flame text-2xl"></i>
+        <span class="text-xs font-600 tracking-wider">SG-SST</span>
+        <span class="text-xs text-white/60">Cumplimiento</span>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0">
+        <div class="max-w-3xl">
+          <!-- Tag -->
+          <div class="hero-tag inline-flex items-center gap-2 bg-flame/20 border border-flame/40 text-flame-light text-xs font-600 tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+            <span class="w-2 h-2 bg-flame rounded-full animate-pulse"></span>
+            Seguridad Industrial Profesional De Barranquilla
+          </div>
+          <!-- Headline -->
+          <h1 class="hero-title font-display font-900 text-5xl sm:text-6xl lg:text-8xl leading-none text-white mb-6 uppercase tracking-tight">
+            Protegemos<br/>
+            <span class="text-flame">Vidas</span> &<br/>
+            Empresas
+          </h1>
+          <p class="hero-subtitle text-lg lg:text-xl text-white/70 font-300 max-w-xl mb-10 leading-relaxed">
+            Soluciones profesionales contra incendios. Especialistas en extintores, seguridad industrial y cumplimiento normativo.
+          </p>
+          <!-- CTAs -->
+          <div class="hero-ctas flex flex-col sm:flex-row gap-4">
+            <a href="#calculadora"
+              class="group bg-flame hover:bg-flame-dark text-white font-600 px-8 py-4 rounded-full shadow-xl shadow-flame/30 hover:shadow-flame/50 transition-all duration-300 flex items-center justify-center gap-3 text-base">
+              <i class="fas fa-calculator group-hover:rotate-12 transition-transform"></i>
+              Calcular Extintores
+            </a>
+            <a href="https://wa.me/573000000000" target="_blank"
+              class="group border-2 border-white/30 hover:border-white text-white font-600 px-8 py-4 rounded-full hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 text-base">
+              <i class="fab fa-whatsapp text-green-400 text-xl group-hover:scale-110 transition-transform"></i>
+              Cotizar por WhatsApp
+            </a>
+          </div>
+
+          <!-- Stats row -->
+          <div class="hero-stats flex flex-wrap gap-8 mt-16">
+            <div class="text-white">
+              <div class="font-display font-900 text-4xl text-flame">+500</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest mt-1">Clientes</div>
+            </div>
+            <div class="w-px bg-white/20"></div>
+            <div class="text-white">
+              <div class="font-display font-900 text-4xl text-flame">+8K</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest mt-1">Extintores</div>
+            </div>
+            <div class="w-px bg-white/20"></div>
+            <div class="text-white">
+              <div class="font-display font-900 text-4xl text-flame">+10</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest mt-1">Años</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 animate-bounce">
+        <span class="text-xs tracking-widest uppercase">Baja</span>
+        <i class="fas fa-chevron-down text-sm"></i>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE NOSOTROS
+    ============================================================ -->
+    <section id="nosotros" class="py-24 lg:py-32 bg-ash relative overflow-hidden">
+      <div class="section-blob absolute -top-32 -right-32 w-96 h-96 bg-flame/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <!-- Left: Image collage -->
+          <div class="relative" data-aos="fade-right" data-aos-duration="800">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=500&fit=crop" alt="Seguridad industrial"
+                class="rounded-2xl object-cover h-64 w-full shadow-2xl" />
+              <div class="flex flex-col gap-4 pt-8">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=280&fit=crop" alt="Extintor"
+                  class="rounded-2xl object-cover h-40 w-full shadow-xl" />
+                <div class="bg-flame rounded-2xl p-6 text-white shadow-xl shadow-flame/30">
+                  <div class="font-display font-900 text-5xl">10+</div>
+                  <div class="text-white/80 text-sm font-500 mt-1">Años de experiencia protegiendo lo que importa</div>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative badge -->
+            <div class="absolute -bottom-6 -left-6 bg-ink text-white px-6 py-4 rounded-2xl shadow-2xl hidden lg:block">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-award text-flame text-2xl"></i>
+                <div>
+                  <div class="font-600 text-sm">Certificados NFPA</div>
+                  <div class="text-white/50 text-xs">& NTC 2885</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Content -->
+          <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+            <span class="section-tag">Sobre Nosotros</span>
+            <h2 class="section-title mt-3 mb-6">
+              Más de 10 años<br/>
+              <span class="text-flame">protegiéndote</span>
+            </h2>
+            <p class="text-steel leading-relaxed mb-6">
+              Somos una empresa colombiana del calor del atlantico con más de 10 años de trayectoria en soluciones integrales de seguridad contra incendios. Nuestro equipo de técnicos certificados garantiza el cumplimiento de las normativas NFPA, NTC 2885 y SG-SST en cada proyecto.
+            </p>
+            <p class="text-steel leading-relaxed mb-10">
+              Desde la inspección inicial hasta la instalación, recarga y capacitación, ofrecemos un servicio 360° que protege personas, activos e infraestructura con la más alta calidad del mercado.
+            </p>
+
+            <!-- Stats grid -->
+            <div class="grid grid-cols-2 gap-6">
+              <div class="stat-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="font-display font-900 text-4xl text-flame counter" data-target="500">0</div>
+                <div class="text-steel text-sm font-500 mt-1">Clientes activos</div>
+              </div>
+              <div class="stat-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="font-display font-900 text-4xl text-flame counter" data-target="8000">0</div>
+                <div class="text-steel text-sm font-500 mt-1">Extintores instalados</div>
+              </div>
+              <div class="stat-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="font-display font-900 text-4xl text-flame counter" data-target="320">0</div>
+                <div class="text-steel text-sm font-500 mt-1">Empresas atendidas</div>
+              </div>
+              <div class="stat-card bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div class="font-display font-900 text-4xl text-flame counter" data-target="10">0</div>
+                <div class="text-steel text-sm font-500 mt-1">Años de experiencia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS
+    ============================================================ -->
+    <section id="servicios" class="py-24 lg:py-32 bg-ink relative overflow-hidden">
+      <div class="section-blob absolute top-0 left-0 w-96 h-96 bg-flame/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="section-blob absolute bottom-0 right-0 w-96 h-96 bg-flame/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="section-tag-dark">Nuestros Servicios</span>
+          <h2 class="section-title text-white mt-3">
+            Soluciones <span class="text-flame">completas</span><br/>de protección
+          </h2>
+          <p class="text-white/50 max-w-xl mx-auto mt-4">Todo lo que necesitas para mantener tu empresa protegida y en cumplimiento normativo.</p>
+        </div>
+
+        <!-- Services grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+          <!-- Card template -->
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-fire-extinguisher text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Venta de Extintores</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Extintores ABC, CO₂, Tipo K, Agua y especiales. Todos certificados y con garantía.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase group-hover:gap-3 flex items-center gap-2 transition-all">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="50">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-rotate text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Recarga de Extintores</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Recarga profesional con agentes extintores certificados. Revisión técnica incluida.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-magnifying-glass text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Inspección & Mantenimiento</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Visitas periódicas, informes técnicos y certificados de cumplimiento normativo.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="150">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-triangle-exclamation text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Señalización</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Rutas de evacuación, señales fotoluminiscentes, pictogramas y demarcación de zonas.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-spray-can text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Equipos de Emergencia</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Gabinetes, mangueras, detectores de humo, alarmas y sistemas de supresión.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="250">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-chalkboard-user text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Capacitaciones</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Brigadas de emergencia, uso de extintores, evacuación y primeros auxilios.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <div class="service-card group bg-ink-soft border border-white/10 rounded-2xl p-6 hover:border-flame/50 hover:bg-flame/5 transition-all duration-400 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 bg-flame/20 group-hover:bg-flame rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
+              <i class="fas fa-hard-hat text-flame group-hover:text-white text-xl transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-white font-700 text-base mb-2">Seguridad Industrial</h3>
+            <p class="text-white/50 text-sm leading-relaxed">Implementación y asesoría en SG-SST, análisis de riesgos y planes de emergencia.</p>
+            <div class="mt-4 text-flame text-xs font-600 tracking-wider uppercase flex items-center gap-2">
+              Ver más <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- CTA card -->
+          <div class="service-card bg-flame rounded-2xl p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
+            <div>
+              <i class="fas fa-headset text-white text-3xl mb-4"></i>
+              <h3 class="text-white font-700 text-base mb-2">¿Necesitas asesoría?</h3>
+              <p class="text-white/80 text-sm leading-relaxed">Contáctanos ahora y recibe una consulta gratuita de nuestros técnicos certificados.</p>
+            </div>
+            <a href="https://wa.me/573000000000" target="_blank"
+              class="mt-6 bg-white text-flame font-700 text-sm px-6 py-3 rounded-full text-center hover:bg-ash transition-colors">
+              Contactar ahora
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CATÁLOGO
+    ============================================================ -->
+    <section id="catalogo" class="py-24 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="section-tag">Catálogo</span>
+          <h2 class="section-title mt-3">
+            Nuestros <span class="text-flame">Extintores</span>
+          </h2>
+          <p class="text-steel max-w-xl mx-auto mt-4">Gama completa de extintores certificados para cada tipo de riesgo y aplicación.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+
+          <!-- ABC -->
+          <div class="catalog-card group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-flame/30 overflow-hidden transition-all duration-400 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
+            <div class="bg-gradient-to-br from-red-50 to-orange-50 h-48 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-flame/5 group-hover:bg-flame/10 transition-colors"></div>
+              <i class="fas fa-fire-extinguisher text-flame text-6xl group-hover:scale-110 transition-transform duration-300 relative z-10"></i>
+              <span class="absolute top-4 right-4 bg-flame text-white text-xs font-700 px-3 py-1 rounded-full">ABC</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-800 text-lg mb-1">Extintor ABC</h3>
+              <p class="text-steel text-xs mb-3 leading-relaxed">Polvo seco multipropósito para fuegos de tipo A, B y C. El más versátil del mercado.</p>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-steel">Tipo de fuego</span><span class="font-600 text-flame">A · B · C</span></div>
+                <div class="flex justify-between"><span class="text-steel">Capacidad</span><span class="font-600">2.5, 5, 10, 20 kg</span></div>
+                <div class="flex justify-between"><span class="text-steel">Uso</span><span class="font-600">General</span></div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                <span class="tag-fire">Sólidos</span>
+                <span class="tag-fire">Líquidos</span>
+                <span class="tag-fire">Eléctrico</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CO2 -->
+          <div class="catalog-card group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-flame/30 overflow-hidden transition-all duration-400 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="60">
+            <div class="bg-gradient-to-br from-gray-50 to-slate-100 h-48 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-flame/5 group-hover:bg-flame/10 transition-colors"></div>
+              <i class="fas fa-wind text-slate-500 text-6xl group-hover:scale-110 transition-transform duration-300 relative z-10"></i>
+              <span class="absolute top-4 right-4 bg-slate-700 text-white text-xs font-700 px-3 py-1 rounded-full">CO₂</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-800 text-lg mb-1">Extintor CO₂</h3>
+              <p class="text-steel text-xs mb-3 leading-relaxed">Dióxido de carbono para equipos eléctricos y electrónicos. No deja residuos.</p>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-steel">Tipo de fuego</span><span class="font-600 text-flame">B · C</span></div>
+                <div class="flex justify-between"><span class="text-steel">Capacidad</span><span class="font-600">5, 10, 15 lb</span></div>
+                <div class="flex justify-between"><span class="text-steel">Uso</span><span class="font-600">Eléctrico/Datos</span></div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                <span class="tag-fire">Líquidos</span>
+                <span class="tag-fire">Eléctrico</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tipo K -->
+          <div class="catalog-card group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-flame/30 overflow-hidden transition-all duration-400 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="120">
+            <div class="bg-gradient-to-br from-yellow-50 to-amber-50 h-48 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-flame/5 group-hover:bg-flame/10 transition-colors"></div>
+              <i class="fas fa-utensils text-amber-500 text-6xl group-hover:scale-110 transition-transform duration-300 relative z-10"></i>
+              <span class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-700 px-3 py-1 rounded-full">TIPO K</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-800 text-lg mb-1">Extintor Tipo K</h3>
+              <p class="text-steel text-xs mb-3 leading-relaxed">Específico para cocinas industriales. Aceites y grasas vegetales/animales a alta temperatura.</p>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-steel">Tipo de fuego</span><span class="font-600 text-flame">K</span></div>
+                <div class="flex justify-between"><span class="text-steel">Capacidad</span><span class="font-600">6 lt</span></div>
+                <div class="flex justify-between"><span class="text-steel">Uso</span><span class="font-600">Cocinas industriales</span></div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                <span class="tag-fire">Aceites</span>
+                <span class="tag-fire">Grasas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agua -->
+          <div class="catalog-card group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-flame/30 overflow-hidden transition-all duration-400 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="180">
+            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 h-48 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-flame/5 group-hover:bg-flame/10 transition-colors"></div>
+              <i class="fas fa-droplet text-blue-500 text-6xl group-hover:scale-110 transition-transform duration-300 relative z-10"></i>
+              <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-700 px-3 py-1 rounded-full">AGUA</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-800 text-lg mb-1">Extintor de Agua</h3>
+              <p class="text-steel text-xs mb-3 leading-relaxed">Agua a presión para materiales sólidos combustibles. Ecológico y económico.</p>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-steel">Tipo de fuego</span><span class="font-600 text-flame">A</span></div>
+                <div class="flex justify-between"><span class="text-steel">Capacidad</span><span class="font-600">9.5, 14 lt</span></div>
+                <div class="flex justify-between"><span class="text-steel">Uso</span><span class="font-600">Papel/madera/textiles</span></div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                <span class="tag-fire">Sólidos</span>
+                <span class="tag-fire">Papel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solkaflam -->
+          <div class="catalog-card group bg-white rounded-3xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-flame/30 overflow-hidden transition-all duration-400 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="240">
+            <div class="bg-gradient-to-br from-green-50 to-teal-50 h-48 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-flame/5 group-hover:bg-flame/10 transition-colors"></div>
+              <i class="fas fa-flask text-teal-500 text-6xl group-hover:scale-110 transition-transform duration-300 relative z-10"></i>
+              <span class="absolute top-4 right-4 bg-teal-600 text-white text-xs font-700 px-3 py-1 rounded-full">SOLKAFLAM</span>
+            </div>
+            <div class="p-5">
+              <h3 class="font-display font-800 text-lg mb-1">Solkaflam</h3>
+              <p class="text-steel text-xs mb-3 leading-relaxed">Agente limpio para salas de cómputo y áreas críticas. No conductor, sin residuos.</p>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between"><span class="text-steel">Tipo de fuego</span><span class="font-600 text-flame">A · B · C</span></div>
+                <div class="flex justify-between"><span class="text-steel">Capacidad</span><span class="font-600">6, 11 kg</span></div>
+                <div class="flex justify-between"><span class="text-steel">Uso</span><span class="font-600">Salas de cómputo</span></div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-1">
+                <span class="tag-fire">Limpio</span>
+                <span class="tag-fire">Salas críticas</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12" data-aos="fade-up">
+          <a href="https://wa.me/573000000000?text=Hola,%20quiero%20información%20sobre%20el%20catálogo%20de%20extintores" target="_blank"
+            class="inline-flex items-center gap-3 bg-flame hover:bg-flame-dark text-white font-600 px-10 py-4 rounded-full shadow-xl shadow-flame/30 transition-all duration-300 hover:shadow-flame/50">
+            <i class="fab fa-whatsapp text-xl"></i>
+            Solicitar catálogo completo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CALCULADORA
+    ============================================================ -->
+    <section id="calculadora" class="py-24 lg:py-32 bg-ink relative overflow-hidden">
+      <div class="section-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-flame/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-12" data-aos="fade-up">
+          <span class="section-tag-dark">Herramienta gratuita y unica en el Caribe</span>
+          <h2 class="section-title text-white mt-3">
+            Calculadora <span class="text-flame">Inteligente</span><br/>de Extintores
+          </h2>
+          <p class="text-white/50 max-w-2xl mx-auto mt-4">
+            Ingresa los datos de tu establecimiento y obtendrás al instante una recomendación técnica según la NFPA y NTC 2885.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+
+          <!-- FORM -->
+          <div class="bg-ink-soft border border-white/10 rounded-3xl p-8" data-aos="fade-right">
+            <div class="flex items-center gap-3 mb-8">
+              <div class="w-10 h-10 bg-flame rounded-xl flex items-center justify-center">
+                <i class="fas fa-calculator text-white"></i>
+              </div>
+              <h3 class="text-white font-display font-700 text-xl">Datos del Establecimiento</h3>
+            </div>
+
+            <div class="space-y-5">
+              <!-- Tipo -->
+              <div>
+                <label class="calc-label">Tipo de establecimiento</label>
+                <select id="calc-tipo" class="calc-input">
+                  <option value="">-- Selecciona --</option>
+                  <option value="restaurante">🍽️ Restaurante</option>
+                  <option value="oficina">🏢 Oficina</option>
+                  <option value="local">🏪 Local comercial</option>
+                  <option value="bodega">🏭 Bodega / Almacén</option>
+                  <option value="taller">🔧 Taller mecánico</option>
+                  <option value="conjunto">🏘️ Conjunto residencial</option>
+                  <option value="cocina">👨‍🍳 Cocina industrial</option>
+                  <option value="drogueria">💊 Droguería / Farmacia</option>
+                  <option value="ferreteria">🔩 Ferretería</option>
+                  <option value="industria">⚙️ Industria / Planta</option>
+                </select>
+              </div>
+
+              <!-- Área y pisos -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="calc-label">Metros cuadrados (m²)</label>
+                  <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input" />
+                </div>
+                <div>
+                  <label class="calc-label">Cantidad de pisos</label>
+                  <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input" />
+                </div>
+              </div>
+
+              <!-- Áreas -->
+              <div>
+                <label class="calc-label">Cantidad de áreas / zonas</label>
+                <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input" />
+              </div>
+
+              <!-- Nivel de riesgo -->
+              <div>
+                <label class="calc-label">Nivel de riesgo</label>
+                <div class="grid grid-cols-3 gap-3 mt-2">
+                  <label class="risk-option" data-value="bajo">
+                    <input type="radio" name="riesgo" value="bajo" class="hidden" />
+                    <div class="risk-btn risk-low">
+                      <i class="fas fa-circle-check text-lg mb-1"></i>
+                      <span class="text-xs font-600">Bajo</span>
+                    </div>
+                  </label>
+                  <label class="risk-option" data-value="medio">
+                    <input type="radio" name="riesgo" value="medio" class="hidden" />
+                    <div class="risk-btn risk-medium">
+                      <i class="fas fa-triangle-exclamation text-lg mb-1"></i>
+                      <span class="text-xs font-600">Medio</span>
+                    </div>
+                  </label>
+                  <label class="risk-option" data-value="alto">
+                    <input type="radio" name="riesgo" value="alto" class="hidden" />
+                    <div class="risk-btn risk-high">
+                      <i class="fas fa-radiation text-lg mb-1"></i>
+                      <span class="text-xs font-600">Alto</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Checkboxes -->
+              <div>
+                <label class="calc-label mb-3 block">Características especiales</label>
+                <div class="grid grid-cols-2 gap-3">
+                  <label class="check-option flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                    <input type="checkbox" id="calc-cocina" class="check-box" />
+                    <div>
+                      <i class="fas fa-fire text-flame mr-2 text-sm"></i>
+                      <span class="text-white/80 text-sm">Tiene cocina</span>
+                    </div>
+                  </label>
+                  <label class="check-option flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                    <input type="checkbox" id="calc-inflamable" class="check-box" />
+                    <div>
+                      <i class="fas fa-gas-pump text-flame mr-2 text-sm"></i>
+                      <span class="text-white/80 text-sm">Líquidos inflamables</span>
+                    </div>
+                  </label>
+                  <label class="check-option flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                    <input type="checkbox" id="calc-electrico" class="check-box" />
+                    <div>
+                      <i class="fas fa-bolt text-flame mr-2 text-sm"></i>
+                      <span class="text-white/80 text-sm">Equipos eléctricos</span>
+                    </div>
+                  </label>
+                  <label class="check-option flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                    <input type="checkbox" id="calc-quimicos" class="check-box" />
+                    <div>
+                      <i class="fas fa-flask text-flame mr-2 text-sm"></i>
+                      <span class="text-white/80 text-sm">Almacena químicos</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <button id="calc-btn"
+                class="w-full bg-flame hover:bg-flame-dark text-white font-700 py-4 rounded-2xl shadow-xl shadow-flame/30 hover:shadow-flame/50 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-2">
+                <i class="fas fa-calculator"></i>
+                Calcular Ahora
+              </button>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div id="calc-result-wrapper" data-aos="fade-left">
+
+            <!-- Placeholder -->
+            <div id="calc-placeholder" class="bg-ink-soft border border-dashed border-white/20 rounded-3xl p-12 text-center">
+              <i class="fas fa-fire-extinguisher text-white/20 text-6xl mb-4"></i>
+              <p class="text-white/30 text-base">Completa el formulario y obtén<br/>tu recomendación técnica</p>
+            </div>
+
+            <!-- Result dashboard (hidden by default) -->
+            <div id="calc-result" class="hidden">
+              <!-- Risk summary -->
+              <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="text-white font-display font-700 text-xl flex items-center gap-2">
+                    <i class="fas fa-shield-halved text-flame"></i> Resultado Técnico
+                  </h3>
+                  <span id="result-riesgo-badge" class="text-xs font-700 px-4 py-1.5 rounded-full uppercase tracking-wider"></span>
+                </div>
+                <p id="result-resumen" class="text-white/60 text-sm leading-relaxed"></p>
+              </div>
+
+              <!-- Detected risks -->
+              <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+                <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <i class="fas fa-triangle-exclamation text-flame"></i> Riesgos detectados
+                </h4>
+                <div id="result-riesgos" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <!-- Fire classes -->
+              <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+                <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <i class="fas fa-fire text-flame"></i> Clases de fuego a controlar
+                </h4>
+                <div id="result-clases" class="flex flex-wrap gap-3"></div>
+              </div>
+
+              <!-- Extinguisher list -->
+              <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+                <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <i class="fas fa-fire-extinguisher text-flame"></i> Extintores recomendados
+                </h4>
+                <div id="result-extintores" class="space-y-3"></div>
+              </div>
+
+              <!-- Location by floor -->
+              <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-6">
+                <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                  <i class="fas fa-map-marker-alt text-flame"></i> Ubicación sugerida por piso
+                </h4>
+                <div id="result-ubicacion" class="space-y-2"></div>
+              </div>
+
+              <!-- WhatsApp CTA -->
+              <button id="calc-wa-btn"
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-700 py-4 rounded-2xl shadow-xl shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 flex items-center justify-center gap-3 text-base">
+                <i class="fab fa-whatsapp text-xl"></i>
+                Enviar cotización por WhatsApp
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         NORMATIVA
+    ============================================================ -->
+    <section id="normativa" class="py-24 lg:py-32 bg-ash relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="section-tag">Cumplimiento Legal</span>
+          <h2 class="section-title mt-3">
+            Normativa que <span class="text-flame">cumplimos</span>
+          </h2>
+          <p class="text-steel max-w-xl mx-auto mt-4">Trabajamos bajo los más altos estándares nacionales e internacionales de seguridad.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="norm-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-flame/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-16 h-16 bg-flame/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <i class="fas fa-certificate text-flame text-2xl"></i>
+            </div>
+            <h3 class="font-display font-800 text-xl mb-2">NFPA</h3>
+            <p class="text-steel text-sm leading-relaxed">National Fire Protection Association. Estándares internacionales para la protección contra incendios.</p>
+            <div class="mt-4 text-xs text-flame font-600 uppercase tracking-widest">Internacional</div>
+          </div>
+
+          <div class="norm-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-flame/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 bg-flame/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <i class="fas fa-book text-flame text-2xl"></i>
+            </div>
+            <h3 class="font-display font-800 text-xl mb-2">NTC 2885</h3>
+            <p class="text-steel text-sm leading-relaxed">Norma Técnica Colombiana para extintores portátiles. Establece requisitos de fabricación, prueba y uso.</p>
+            <div class="mt-4 text-xs text-flame font-600 uppercase tracking-widest">Colombia</div>
+          </div>
+
+          <div class="norm-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-flame/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 bg-flame/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <i class="fas fa-bolt text-flame text-2xl"></i>
+            </div>
+            <h3 class="font-display font-800 text-xl mb-2">RETIE</h3>
+            <p class="text-steel text-sm leading-relaxed">Reglamento Técnico de Instalaciones Eléctricas. Seguridad en instalaciones de baja y media tensión.</p>
+            <div class="mt-4 text-xs text-flame font-600 uppercase tracking-widest">Colombia</div>
+          </div>
+
+          <div class="norm-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-flame/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 bg-flame/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <i class="fas fa-hard-hat text-flame text-2xl"></i>
+            </div>
+            <h3 class="font-display font-800 text-xl mb-2">SG-SST</h3>
+            <p class="text-steel text-sm leading-relaxed">Sistema de Gestión de Seguridad y Salud en el Trabajo. Decreto 1072 de 2015 y resoluciones MINTRABAJO.</p>
+            <div class="mt-4 text-xs text-flame font-600 uppercase tracking-widest">Colombia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIOS
+    ============================================================ -->
+    <section id="testimonios" class="py-24 lg:py-32 bg-ink relative overflow-hidden">
+      <div class="section-blob absolute -top-32 -left-32 w-96 h-96 bg-flame/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="section-tag-dark">Testimonios</span>
+          <h2 class="section-title text-white mt-3">
+            Lo que dicen nuestros <span class="text-flame">clientes</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="testimonial-card bg-ink-soft border border-white/10 rounded-3xl p-8 hover:border-flame/30 transition-colors" data-aos="fade-up" data-aos-delay="0">
+            <div class="flex gap-1 mb-4">
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed mb-6 italic">
+              "SafeGuard nos certificó toda la planta en tiempo récord. El equipo técnico fue muy profesional y el informe entregado superó nuestras expectativas normativas."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-flame rounded-full flex items-center justify-center text-white font-700">C</div>
+              <div>
+                <div class="text-white font-600 text-sm">Carlos Mendoza</div>
+                <div class="text-white/40 text-xs">Gerente de Planta · Alimentos Andinos S.A.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card bg-ink-soft border border-white/10 rounded-3xl p-8 hover:border-flame/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex gap-1 mb-4">
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed mb-6 italic">
+              "Usamos la calculadora de su web y fue increíblemente precisa. La cotización llegó en minutos por WhatsApp. Excelente experiencia de principio a fin."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-700">L</div>
+              <div>
+                <div class="text-white font-600 text-sm">Laura Jiménez</div>
+                <div class="text-white/40 text-xs">Administradora · Centro Comercial Plaza Norte</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card bg-ink-soft border border-white/10 rounded-3xl p-8 hover:border-flame/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex gap-1 mb-4">
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star text-amber-400 text-sm"></i>
+              <i class="fas fa-star-half-stroke text-amber-400 text-sm"></i>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed mb-6 italic">
+              "Llevamos 3 años con SafeGuard para el mantenimiento de extintores de toda la cadena. Son puntuales, documentados y siempre cumplen con la normativa vigente."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-700">R</div>
+              <div>
+                <div class="text-white font-600 text-sm">Ricardo Torres</div>
+                <div class="text-white/40 text-xs">Director HSEQ · Cadena Restaurantes La Brasa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO
+    ============================================================ -->
+    <section id="contacto" class="py-24 lg:py-32 bg-ash relative overflow-hidden">
+      <div class="section-blob absolute top-0 right-0 w-96 h-96 bg-flame/5 rounded-full blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="section-tag">Contacto</span>
+          <h2 class="section-title mt-3">
+            ¿Listo para <span class="text-flame">proteger</span><br/>tu empresa?
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+          <!-- Form -->
+          <div class="bg-white rounded-3xl shadow-xl p-8" data-aos="fade-right">
+            <h3 class="font-display font-800 text-xl mb-6">Escríbenos</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="contact-label">Nombre</label>
+                  <input type="text" placeholder="Tu nombre" class="contact-input" />
+                </div>
+                <div>
+                  <label class="contact-label">Teléfono</label>
+                  <input type="tel" placeholder="300 000 0000" class="contact-input" />
+                </div>
+              </div>
+              <div>
+                <label class="contact-label">Correo electrónico</label>
+                <input type="email" placeholder="tu@empresa.com" class="contact-input" />
+              </div>
+              <div>
+                <label class="contact-label">Mensaje</label>
+                <textarea rows="4" placeholder="Cuéntanos qué necesitas..." class="contact-input resize-none"></textarea>
+              </div>
+              <button class="w-full bg-flame hover:bg-flame-dark text-white font-700 py-4 rounded-2xl shadow-lg shadow-flame/30 transition-all duration-300 flex items-center justify-center gap-3">
+                <i class="fas fa-paper-plane"></i> Enviar mensaje
+              </button>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div data-aos="fade-left">
+            <div class="space-y-4 mb-8">
+              <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 flex items-center gap-4 hover:border-flame/30 transition-colors">
+                <div class="w-12 h-12 bg-flame/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fab fa-whatsapp text-flame text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-steel uppercase tracking-widest mb-1">WhatsApp</div>
+                  <a href="https://wa.me/573000000000" target="_blank" class="font-600 text-ink hover:text-flame transition-colors">+57 300 000 0000</a>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 flex items-center gap-4 hover:border-flame/30 transition-colors">
+                <div class="w-12 h-12 bg-flame/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-flame text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-steel uppercase tracking-widest mb-1">Correo</div>
+                  <a href="mailto:info@safeguardindustrial.com" class="font-600 text-ink hover:text-flame transition-colors">info@safeguardindustrial.com</a>
+                </div>
+              </div>
+              <div class="bg-white rounded-2xl p-5 shadow-md border border-gray-100 flex items-center gap-4 hover:border-flame/30 transition-colors">
+                <div class="w-12 h-12 bg-flame/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-flame text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-steel uppercase tracking-widest mb-1">Dirección</div>
+                  <span class="font-600 text-ink">Carrera 15 #45-12, Barranquilla, Colombia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social icons -->
+            <div class="flex gap-3 mb-8">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+              <a href="https://wa.me/573000000000" target="_blank" class="social-icon social-wa"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Map -->
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-52">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63288.4!2d-74.8090!3d10.9685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d42f2da7d0b%3A0x2c3c35c0f5e46b65!2sBarranquilla%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Mapa SafeGuard Industrial">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-ink border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-flame rounded-lg flex items-center justify-center">
+              <i class="fas fa-fire text-white"></i>
+            </div>
+            <div>
+              <div class="font-display font-900 text-white text-lg tracking-wide">Servicios & Seguridad</div>
+              <div class="text-white/40 text-xs tracking-widest uppercase">Del Caribe</div>
+            </div>
+          </div>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Especialistas en seguridad contra incendios y cumplimiento normativo en Colombia.
+          </p>
+          <div class="flex gap-3 mt-5">
+            <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/573000000000" target="_blank" class="footer-social text-green-400 border-green-400/30 hover:bg-green-400/10"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h4 class="text-white font-700 text-sm uppercase tracking-widest mb-5">Menú rápido</h4>
+          <ul class="space-y-2">
+            <li><a href="#nosotros" class="footer-link">Sobre nosotros</a></li>
+            <li><a href="#servicios" class="footer-link">Servicios</a></li>
+            <li><a href="#catalogo" class="footer-link">Catálogo</a></li>
+            <li><a href="#calculadora" class="footer-link">Calculadora</a></li>
+            <li><a href="#normativa" class="footer-link">Normativa</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-white font-700 text-sm uppercase tracking-widest mb-5">Servicios</h4>
+          <ul class="space-y-2">
+            <li><a href="#servicios" class="footer-link">Venta de extintores</a></li>
+            <li><a href="#servicios" class="footer-link">Recarga</a></li>
+            <li><a href="#servicios" class="footer-link">Inspección y mantenimiento</a></li>
+            <li><a href="#servicios" class="footer-link">Señalización</a></li>
+            <li><a href="#servicios" class="footer-link">Capacitaciones</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-700 text-sm uppercase tracking-widest mb-5">Contacto</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-flame mt-0.5 text-sm"></i>
+              <span class="text-white/50 text-sm">Carrera 54 #48-153, Barranquilla, Colombia</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fab fa-whatsapp text-flame text-sm"></i>
+              <a href="https://wa.me/573000000000" target="_blank" class="text-white/50 hover:text-white text-sm transition-colors">+57 300 000 0000</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-flame text-sm"></i>
+              <a href="mailto:sersigdelcaribe@gmail.com" class="text-white/50 hover:text-white text-sm transition-colors">sersigdelcaribe@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/5 py-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-white/30 text-xs">© 2024 Servicios & Seguridad del Caribe. Todos los derechos reservados.</p>
+        <p class="text-white/20 text-xs">NFPA · NTC 2885 · RETIE · SG-SST</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       WHATSAPP FLOATING BUTTON
+  ============================================================ -->
+  <a href="https://wa.me/573000000000?text=Hola,%20SafeGuard!%20Quiero%20información%20sobre%20sus%20servicios."
+    target="_blank" id="wa-float"
+    class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl shadow-green-500/40 hover:scale-110 transition-all duration-300"
+    aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp text-white text-3xl"></i>
+    <span class="absolute -top-10 right-0 bg-ink-soft text-white text-xs px-3 py-1.5 rounded-full whitespace-nowrap shadow-lg wa-tooltip opacity-0 pointer-events-none transition-opacity">
+      ¡Chatea con nosotros!
+    </span>
+  </a>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
