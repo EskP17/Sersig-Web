@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="es" style=""><head></head><body class="font-sans antialiased text-gray-800 bg-white">```html
+
+
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SERSIG - del Caribe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sersig-blue': '#1e3a8a',
+            'sersig-light-bg': '#f8fafc',
+            'sersig-gray': '#475569',
+            'sersig-dark-blue': '#0f172a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    .clip-path-slant {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+    }
+    @media (max-width: 1024px) {
+      .clip-path-slant {
+        clip-path: none;
+      }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<div class="hidden lg:flex justify-end items-center px-gutter py-2 gap-6 border-b border-outline-variant/50 text-xs font-label-bold mx-auto w-full bg-sersig-dark-blue text-white">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">phone</span>
+<span class="">311 534 4811</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="">Lun - Vie: 7:00 am - 5:00 pm</span>
+</div>
+<div class="flex items-center gap-2 ml-4">
+</div>
+</div>
+<!-- BEGIN: Header -->
+<header class="bg-white shadow-sm relative z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-24">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center">
+<a class="flex items-center gap-3" href="#">
+<div class="w-24 h-24 flex items-center justify-center overflow-hidden"><img alt="SERSIG Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW"></div>
+<div class="flex flex-col">
+</div>
+</a>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-sersig-blue font-semibold border-b-2 border-sersig-blue pb-1 text-sm tracking-wide" href="#">INICIO</a>
+<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">NOSOTROS</a>
+<div class="relative group cursor-pointer">
+<a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="#">
+              SERVICIOS <i class="fas fa-chevron-down ml-1 text-xs"></i>
+</a>
+</div>
+<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CAPACITACIONES</a>
+<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">BLOG</a>
+<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CONTACTO</a>
+</nav>
+<!-- Contact Info & CTA -->
+<div class="hidden lg:flex items-center space-x-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sersig-blue">
+<i class="fas fa-phone-alt"></i>
+</div>
+<div class="flex flex-col">
+<span class="font-display font-bold text-lg text-gray-900 leading-tight">311 534 4811</span>
+<span class="text-xs text-gray-500 font-medium">Lun - Vie: 7:00 am - 5:00 pm</span>
+</div>
+</div>
+<a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center text-sm tracking-wide" href="#">COTIZAR AHORA</a>
+</div>
+<!-- Mobile menu button -->
+<div class="md:hidden flex items-center">
+<button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+<i class="fas fa-bars text-2xl"></i>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Hero Section -->
+<main>
+<section class="relative bg-sersig-light-bg overflow-hidden min-h-[600px] flex items-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
+<!-- Left Content -->
+<div class="pt-8 lg:pt-16 pb-12 max-w-2xl">
+<h2 class="text-sersig-blue font-display font-bold tracking-wider uppercase mb-4 text-sm sm:text-base flex items-center gap-2">
+            PROTEGEMOS LO MÁS IMPORTANTE:
+          </h2>
+<h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-[1.1] mb-6 uppercase">
+            TU EMPRESA,<br>
+<span class="text-sersig-blue">TU EQUIPO, TU FUTURO.</span>
+</h1>
+<p class="text-gray-600 text-lg sm:text-xl mb-8 leading-relaxed max-w-lg">
+            Brindamos servicios de recarga, mantenimiento y venta de extintores, capacitaciones y equipos de seguridad industrial con los más altos estándares de calidad.
+          </p>
+<div class="flex flex-wrap gap-4 mb-12">
+<a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-3.5 px-8 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-blue-900/20" href="#">
+<i class="fab fa-whatsapp text-lg"></i> ESCRÍBENOS POR WHATSAPP
+            </a>
+<a class="bg-white hover:bg-gray-50 text-sersig-blue border-2 border-gray-200 font-semibold py-3.5 px-8 rounded-lg transition-colors flex items-center gap-2 shadow-sm" href="#">
+<i class="far fa-file-alt text-lg"></i> SOLICITAR COTIZACIÓN
+            </a>
+</div>
+<!-- Trust Badges -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-gray-200">
+<div class="flex items-start gap-3">
+<div class="text-sersig-blue mt-1"><i class="fas fa-check-circle text-xl"></i></div>
+<p class="text-xs font-semibold text-gray-700 leading-tight">Cumplimos con la normatividad colombiana</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="text-sersig-blue mt-1"><i class="fas fa-user-shield text-xl"></i></div>
+<p class="text-xs font-semibold text-gray-700 leading-tight">Personal capacitado y certificado</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="text-sersig-blue mt-1"><i class="fas fa-certificate text-xl"></i></div>
+<p class="text-xs font-semibold text-gray-700 leading-tight">Equipos y agentes certificados</p>
+</div>
+<div class="flex items-start gap-3">
+<div class="text-sersig-blue mt-1"><i class="fas fa-stopwatch text-xl"></i></div>
+<p class="text-xs font-semibold text-gray-700 leading-tight">Respuesta rápida y servicio confiable</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Image Background (Desktop) -->
+<div class="hidden lg:block absolute top-0 right-0 w-[55%] h-full z-0 clip-path-slant">
+<img alt="Trabajador de seguridad industrial inspeccionando extintor" class="w-full h-full object-cover object-center mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRm4UqeFrV6btwtAuxYdcJvQlC1xQle14YKO-Cj-oJw6vGk029_ksJlu6uvo7mS-vTvqIeX3YH55Iq22nxvT1slfnQxBBDx3BLwsPzhYY6UURAhOthRYBK0Ja5tLoU0OF6iqJgPG2KlXRlXssvJVgSSqmueF2qMT4eFGmifn93y3_i2qAeR6_j70kfq7qONBZM_lW-_JPTPvCH2PlE6MTdfl5qPIpgHwKL_LazWYnlg5c6YCJCcAGTxrM7cbeVYAgBbnoJxVfdAAt">
+<div class="absolute inset-0 bg-blue-900/40 mix-blend-overlay"></div>
+<!-- Overlay Logo -->
+<div class="absolute bottom-32 right-16 opacity-30 pointer-events-none">
+<div class="w-48 h-48 bg-white/10 flex items-center justify-center rounded-2xl font-display font-bold text-7xl italic relative overflow-hidden backdrop-blur-sm border border-white/20">
+<span class="relative z-10 text-white">S</span>
+</div>
+</div>
+</div>
+</section>
+<!-- BEGIN: Stats Bar -->
+<section class="bg-sersig-dark-blue py-10 relative z-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/20">
+<div class="flex items-center justify-center gap-4 text-white px-4">
+<div class="text-4xl opacity-80"><i class="fas fa-shield-alt"></i></div>
+<div>
+<div class="font-display font-bold text-3xl sm:text-4xl">+8</div>
+<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">AÑOS DE EXPERIENCIA</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 text-white px-4">
+<div class="text-4xl opacity-80"><i class="fas fa-users"></i></div>
+<div>
+<div class="font-display font-bold text-3xl sm:text-4xl">+500</div>
+<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">CLIENTES SATISFECHOS</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 text-white px-4">
+<div class="text-4xl opacity-80"><i class="fas fa-fire-extinguisher"></i></div>
+<div>
+<div class="font-display font-bold text-3xl sm:text-4xl">+3.000</div>
+<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">EXTINTORES RECARGADOS</div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-4 text-white px-4">
+<div class="text-4xl opacity-80"><i class="fas fa-award"></i></div>
+<div>
+<div class="font-display font-bold text-3xl sm:text-4xl">100%</div>
+<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">COMPROMISO Y CALIDAD</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Stats Bar -->
+<!-- BEGIN: Services Preview -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">NUESTROS SERVICIOS</p>
+<h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
+            Soluciones integrales en seguridad industrial
+            <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col">
+<div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-fire-extinguisher"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2">RECARGA DE<br>EXTINTORES</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Recarga con agentes certificados y garantizados.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-tools"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">MANTENIMIENTO<br>DE EXTINTORES</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Mantenimiento preventivo y correctivo según norma.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div></div>
+<!-- Service Card 3 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-shopping-cart"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">VENTA DE<br>EXTINTORES</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Extintores nuevos de alta calidad certificados.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div></div>
+<!-- Service Card 4 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-chalkboard-teacher"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">CAPACITACIONES</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Formación en uso de extintores, brigadas, primeros auxilios y más.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div></div>
+<!-- Service Card 5 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-hard-hat"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">EQUIPOS DE<br>SEGURIDAD</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Elementos de protección personal y señalización.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div></div>
+<!-- Service Card 6 -->
+<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
+<div class="text-sersig-blue text-3xl"><i class="fas fa-clipboard-check"></i></div>
+<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">ASESORÍA Y<br>CUMPLIMIENTO</h3>
+</div>
+<p class="text-sm text-gray-600 mb-6">Asesoría en normatividad y cumplimiento legal.</p>
+<div class="mt-auto absolute bottom-6 left-8">
+  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
+    SABER MÁS
+  </button>
+</div></div>
+</div>
+</div>
+</section><section class="py-16 bg-sersig-light-bg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">VALOR AGREGADO</p>
+<h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
+        ¿Por qué elegirnos?
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
+</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h3 class="font-display font-bold text-gray-900 mb-3">Experiencia Certificada</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Más de 8 años en el mercado con personal altamente calificado y certificado.</p>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+<span class="material-symbols-outlined text-3xl">high_quality</span>
+</div>
+<h3 class="font-display font-bold text-gray-900 mb-3">Equipos de Alta Calidad</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Utilizamos las mejores marcas y agentes certificados para su seguridad contra incendios.</p>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+<span class="material-symbols-outlined text-3xl">gavel</span>
+</div>
+<h3 class="font-display font-bold text-gray-900 mb-3">Cumplimiento Normativo</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Procesos alineados con la normatividad colombiana e internacional (NFPA).</p>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<h3 class="font-display font-bold text-gray-900 mb-3">Atención Personalizada</h3>
+<p class="text-sm text-gray-600 leading-relaxed">Asesoría técnica a la medida de las necesidades específicas de su empresa.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Services Preview -->
+<!-- BEGIN: Brands Section -->
+
+<!-- END: Brands Section -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-sersig-dark-blue text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<!-- Brand & Desc -->
+<div class="flex flex-col">
+<a class="flex items-center gap-3 mb-6 bg-white p-2 rounded-lg w-max" href="#">
+<img alt="SERSIG Logo" class="w-16 h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
+</a>
+<p class="text-sm text-gray-400 leading-relaxed">
+          Expertos en seguridad industrial, recarga de extintores y capacitaciones. Protegemos lo que más valoras con calidad y cumplimiento normativo.
+        </p>
+</div>
+<!-- Links -->
+<div>
+<h4 class="font-display font-bold text-lg mb-6">Enlaces Rápidos</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class=""><a class="hover:text-white transition-colors" href="#">Nosotros</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Capacitaciones</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+<!-- Legal -->
+<div>
+<h4 class="font-display font-bold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li class=""><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
+<li class=""><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h4 class="font-display font-bold text-lg mb-6">Contacto</h4>
+<ul class="space-y-4 text-sm text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sersig-blue text-lg">location_on</span>
+<span class="">Barranquilla, Colombia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sersig-blue text-lg">phone</span>
+<span class="">+57 311 534 4811</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sersig-blue text-lg">mail</span>
+<span class="">contacto@sersig.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-gray-500">
+        © 2024 SERSIG DEL CARIBE SAS. Todos los derechos reservados.
+      </p>
+<div class="flex gap-4">
+<a class="text-gray-500 hover:text-white transition-colors" href="#">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a class="text-gray-500 hover:text-white transition-colors" href="#">
+<i class="fab fa-instagram"></i>
+</a></div></div></div></footer>
+
+</body></html>
