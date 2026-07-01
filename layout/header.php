@@ -1,3 +1,9 @@
+<script>
+  if (!window.tailwind) {
+    document.write('<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"><\/script>');
+  }
+</script>
+
 <!-- BEGIN: Header Layout General -->
 <div class="hidden lg:flex justify-end items-center px-8 py-2 gap-6 border-b border-white/10 text-xs font-bold mx-auto w-full bg-sersig-dark-blue text-white">
   <div class="flex items-center gap-2">
