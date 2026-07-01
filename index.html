@@ -61,74 +61,16 @@
 </head>
 <body class="font-sans antialiased text-gray-800 bg-white">
 
-<div class="hidden lg:flex justify-end items-center px-8 py-2 gap-6 border-b border-white/10 text-xs font-bold mx-auto w-full bg-sersig-dark-blue text-white">
-  <div class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-sm">phone</span>
-    <span>311 534 4811</span>
-  </div>
-  <div class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-sm">schedule</span>
-    <span>Lun - Vie: 7:00 am - 5:00 pm</span>
-  </div>
-</div>
-
-<!-- BEGIN: Header -->
-<header class="bg-white shadow-sm relative z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-24">
-      <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center">
-        <a class="flex items-center gap-3" href="#">
-          <div class="w-33 h-33 flex items-center justify-center overflow-hidden">
-            <img alt="SERSIG Logo" class="w-20 h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
-          </div>
-        </a>
-      </div>
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8">
-        <a class="text-sersig-blue font-semibold border-b-2 border-sersig-blue pb-1 text-sm tracking-wide" href="#">INICIO</a>
-        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">NOSOTROS</a>
-        <div class="relative group cursor-pointer">
-          <a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="#">
-            SERVICIOS <i class="fas fa-chevron-down ml-1 text-xs"></i>
-          </a>
-        </div>
-        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#calculadora">CALCULADORA</a>
-        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CONTACTO</a>
-      </nav>
-      <!-- Contact Info & CTA -->
-      <div class="hidden lg:flex items-center space-x-6">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sersig-blue">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <div class="flex flex-col">
-            <span class="font-display font-bold text-lg text-gray-900 leading-tight">311 534 4811</span>
-            <span class="text-xs text-gray-500 font-medium">Lun - Vie: 7:00 am - 5:00 pm</span>
-          </div>
-        </div>
-        <a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center text-sm tracking-wide shadow-lg shadow-blue-900/20" href="#">COTIZAR AHORA</a>
-      </div>
-      <!-- Mobile menu button -->
-      <div class="md:hidden flex items-center">
-        <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- END: Header -->
+<?php include('header.html'); ?>
 
 <main>
   <!-- BEGIN: Hero Section -->
   <section class="relative bg-sersig-light-bg overflow-hidden min-h-[600px] flex items-center">
     
-    <!-- Right Image Background (Desktop) - Estática y tocando el borde derecho de la pantalla -->
+    <!-- Right Image Background (Desktop) -->
     <div class="hidden lg:block absolute top-0 right-0 w-[55%] h-full z-0 clip-path-slant">
       <img alt="Trabajador de seguridad industrial inspeccionando extintor" class="w-full h-full object-cover object-center mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRm4UqeFrV6btwtAuxYdcJvQlC1xQle14YKO-Cj-oJw6vGk029_ksJlu6uvo7mS-vTvqIeX3YH55Iq22nxvT1slfnQxBBDx3BLwsPzhYY6UURAhOthRYBK0Ja5tLoU0OF6iqJgPG2KlXRlXssvJVgSSqmueF2qMT4eFGmifn93y3_i2qAeR6_j70kfq7qONBZM_lW-_JPTPvCH2PlE6MTdfl5qPIpgHwKL_LazWYnlg5c6YCJCcAGTxrM7cbeVYAgBbnoJxVfdAAt">
       <div class="absolute inset-0 bg-blue-900/40 mix-blend-overlay"></div>
-      <!-- Overlay Logo ELIMINADO -->
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
@@ -317,7 +259,6 @@
 
       <!-- Carrusel de Comentarios Infinito -->
       <div class="relative" data-aos="fade-up" data-aos-delay="200">
-        <!-- Contenedor del carrusel -->
         <div id="testimonial-carousel" class="overflow-hidden">
           <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
             <!-- Testimonio 1 -->
@@ -399,20 +340,17 @@
   </section>
   <!-- END: Testimonials Carousel -->
 
-  <!-- BEGIN: Calculadora Section (DISEÑO MÁS PROFESIONAL) -->
+  <!-- BEGIN: Calculadora Section -->
   <section id="calculadora" class="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-sersig-dark-blue to-blue-950 relative overflow-hidden">
-    <!-- Partículas decorativas de fondo -->
     <div class="absolute inset-0 opacity-20">
       <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
       <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
       <div class="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
     </div>
     
-    <!-- Grid de fondo -->
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)"/%3E%3C/svg%3E')] opacity-40"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Header mejorado -->
       <div class="text-center mb-16" data-aos="fade-up">
         <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-1.5 mb-4">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
@@ -427,7 +365,7 @@
       </div>
 
       <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <!-- FORM con diseño mejorado -->
+        <!-- FORM -->
         <div class="relative group" data-aos="fade-right">
           <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
           <div class="relative bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
@@ -442,7 +380,6 @@
             </div>
 
             <div class="space-y-5">
-              <!-- Tipo -->
               <div>
                 <label class="calc-label flex items-center gap-2">
                   <i class="fas fa-building text-blue-400 text-xs"></i>
@@ -463,7 +400,6 @@
                 </select>
               </div>
 
-              <!-- Área y pisos -->
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label class="calc-label flex items-center gap-2">
@@ -481,7 +417,6 @@
                 </div>
               </div>
 
-              <!-- Áreas -->
               <div>
                 <label class="calc-label flex items-center gap-2">
                   <i class="fas fa-map-pin text-blue-400 text-xs"></i>
@@ -490,7 +425,6 @@
                 <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
               </div>
 
-              <!-- Nivel de riesgo -->
               <div>
                 <label class="calc-label flex items-center gap-2 mb-3">
                   <i class="fas fa-exclamation-triangle text-blue-400 text-xs"></i>
@@ -521,7 +455,6 @@
                 </div>
               </div>
 
-              <!-- Checkboxes -->
               <div>
                 <label class="calc-label flex items-center gap-2 mb-3">
                   <i class="fas fa-list-check text-blue-400 text-xs"></i>
@@ -559,7 +492,6 @@
                 </div>
               </div>
 
-              <!-- CTA mejorado -->
               <button id="calc-btn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-4 rounded-2xl shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-4 group border border-blue-400/20">
                 <i class="fas fa-calculator group-hover:scale-110 transition-transform"></i>
                 Calcular Ahora
@@ -569,9 +501,8 @@
           </div>
         </div>
 
-        <!-- RESULTS con diseño mejorado -->
+        <!-- RESULTS -->
         <div id="calc-result-wrapper" data-aos="fade-left">
-          <!-- Placeholder mejorado -->
           <div id="calc-placeholder" class="relative group">
             <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/50 to-cyan-500/50 rounded-3xl blur opacity-30"></div>
             <div class="relative bg-slate-900/90 border border-dashed border-white/10 rounded-3xl p-12 text-center h-full flex flex-col justify-center items-center backdrop-blur-xl">
@@ -587,7 +518,6 @@
             </div>
           </div>
 
-          <!-- Result dashboard mejorado -->
           <div id="calc-result" class="hidden">
             <div class="relative group mb-6">
               <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500/50 to-emerald-500/50 rounded-3xl blur opacity-30"></div>
@@ -621,7 +551,28 @@
   </section>
   <!-- END: Calculadora Section -->
 
-  <!-- BEGIN: Value Added (MOVIDA A ÚLTIMA - ¿Por qué elegirnos?) -->
+  <!-- BEGIN: Prepare a su brigada hoy -->
+  <section class="py-16 bg-sersig-dark-blue border-t border-blue-500/20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-cyan-900/20 mix-blend-overlay"></div>
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="text-white">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mb-3">Prepare a su brigada hoy</h2>
+        <p class="text-blue-200/80 text-lg max-w-xl">Solicite una cotización para planes de capacitación in-company o en nuestro centro de entrenamiento especializado. Cumplimos con todos los requisitos legales vigentes.</p>
+      </div>
+      <div class="shrink-0 flex gap-4">
+        <a class="inline-flex items-center justify-center bg-white text-sersig-blue px-8 py-4 rounded-xl font-bold uppercase hover:bg-blue-50 transition-colors shadow-lg shadow-blue-900/20 text-sm tracking-wide" href="#">
+          <i class="fas fa-headset mr-2"></i>
+          Contactar Asesor
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- END: Prepare a su brigada hoy -->
+
+  <!-- BEGIN: Value Added (¿Por qué elegirnos?) -->
   <section class="py-16 bg-sersig-light-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" data-aos="fade-up">
@@ -666,71 +617,7 @@
 
 </main>
 
-<!-- BEGIN: Footer -->
-<footer class="bg-sersig-dark-blue text-white pt-16 pb-8 border-t border-white/10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-      <!-- Brand & Desc -->
-      <div class="flex flex-col">
-        <a class="flex items-center gap-3 mb-6 bg-white p-2 rounded-lg w-max" href="#">
-          <img alt="SERSIG Logo" class="w-16 h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
-        </a>
-        <p class="text-sm text-gray-400 leading-relaxed">
-          Expertos en seguridad industrial, recarga de extintores y capacitaciones. Protegemos lo que más valoras con calidad y cumplimiento normativo.
-        </p>
-      </div>
-      <!-- Links -->
-      <div>
-        <h4 class="font-display font-bold text-lg mb-6">Enlaces Rápidos</h4>
-        <ul class="space-y-3 text-sm text-gray-400">
-          <li><a class="hover:text-white transition-colors" href="#">Nosotros</a></li>
-          <li><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
-          <li><a class="hover:text-white transition-colors" href="#">Capacitaciones</a></li>
-          <li><a class="hover:text-white transition-colors" href="#">Contacto</a></li>
-        </ul>
-      </div>
-      <!-- Legal -->
-      <div>
-        <h4 class="font-display font-bold text-lg mb-6">Legal</h4>
-        <ul class="space-y-3 text-sm text-gray-400">
-          <li><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
-          <li><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
-        </ul>
-      </div>
-      <!-- Contact -->
-      <div>
-        <h4 class="font-display font-bold text-lg mb-6">Contacto</h4>
-        <ul class="space-y-4 text-sm text-gray-400">
-          <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-sersig-blue text-lg">location_on</span>
-            <span>Barranquilla, Colombia</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-sersig-blue text-lg">phone</span>
-            <span>+57 311 534 4811</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-sersig-blue text-lg">mail</span>
-            <span>contacto@sersig.com</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-sm text-gray-500">
-        © 2024 SERSIG DEL CARIBE SAS. Todos los derechos reservados.
-      </p>
-      <div class="flex gap-4">
-        <a class="text-gray-500 hover:text-white transition-colors" href="#">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a class="text-gray-500 hover:text-white transition-colors" href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+<?php include('footer.html'); ?>
 
 <!-- AOS Animation Script Setup -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -756,27 +643,22 @@
     const slides = track.children;
     const totalSlides = slides.length;
     let slidesToShow = 3;
-    let currentIndex = totalSlides; // Empezamos desde el primer clon del inicio
+    let currentIndex = totalSlides;
     let slideWidth = 0;
     let isTransitioning = false;
 
-    // Clonar los slides para el efecto infinito
     function setupInfiniteCarousel() {
-      // Clonar los primeros slidesToShow elementos al final
       for (let i = 0; i < slidesToShow; i++) {
         const cloneEnd = slides[i].cloneNode(true);
         track.appendChild(cloneEnd);
       }
       
-      // Clonar los últimos slidesToShow elementos al inicio
       for (let i = totalSlides - 1; i >= totalSlides - slidesToShow; i--) {
         const cloneStart = slides[i].cloneNode(true);
         track.insertBefore(cloneStart, track.firstChild);
       }
       
-      // Actualizar el total de slides después de clonar
       updateSlideWidth();
-      // Posicionar en el primer slide real
       track.style.transition = 'none';
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
@@ -795,30 +677,21 @@
       } else {
         slidesToShow = 3;
       }
-      
-      // Reconstruir el carrusel con los nuevos clones
       resetCarousel();
     }
 
     function resetCarousel() {
-      // Eliminar todos los clones existentes
       const allSlides = track.querySelectorAll('.flex-shrink-0');
       const originalSlides = [];
       
-      // Guardar solo los originales (los primeros totalSlides)
       for (let i = slidesToShow; i < slidesToShow + totalSlides; i++) {
         if (allSlides[i]) {
           originalSlides.push(allSlides[i].cloneNode(true));
         }
       }
       
-      // Limpiar el track
       track.innerHTML = '';
-      
-      // Reinsertar los originales
       originalSlides.forEach(slide => track.appendChild(slide));
-      
-      // Reconfigurar
       setupInfiniteCarousel();
       currentIndex = slidesToShow;
       updateSlideWidth();
@@ -838,7 +711,6 @@
     function handleInfiniteScroll() {
       const maxIndex = totalSlides + slidesToShow - 1;
       
-      // Si llegamos al final de los clones, saltar al inicio real
       if (currentIndex > maxIndex) {
         currentIndex = slidesToShow;
         moveCarousel(true);
@@ -847,7 +719,6 @@
         }, 50);
       }
       
-      // Si llegamos al inicio de los clones, saltar al final real
       if (currentIndex < slidesToShow) {
         currentIndex = maxIndex - (slidesToShow - 1);
         moveCarousel(true);
@@ -876,7 +747,6 @@
       moveCarousel();
     });
 
-    // Auto-play opcional
     let autoplayInterval = setInterval(() => {
       if (!isTransitioning) {
         isTransitioning = true;
@@ -885,7 +755,6 @@
       }
     }, 4000);
 
-    // Pausar autoplay al hacer hover
     const carouselContainer = document.getElementById('testimonial-carousel');
     carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
     carouselContainer.addEventListener('mouseleave', () => {
@@ -898,7 +767,6 @@
       }, 4000);
     });
 
-    // Actualizar slidesToShow al redimensionar la ventana
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
@@ -907,12 +775,9 @@
       }, 250);
     });
 
-    // Inicializar
     setupInfiniteCarousel();
     track.style.transition = 'none';
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    
-    // Forzar un reflow y luego habilitar la transición
     track.offsetHeight;
     track.style.transition = 'transform 0.5s ease-in-out';
   });
