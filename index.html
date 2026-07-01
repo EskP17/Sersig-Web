@@ -1,14 +1,22 @@
-<!DOCTYPE html><html lang="es" style=""><head></head><body class="font-sans antialiased text-gray-800 bg-white">
-
-
-
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>SERSIG - del Caribe</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<script>
+<!DOCTYPE html>
+<html lang="es" style="">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SERSIG - del Caribe</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- AOS Animations CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -26,7 +34,8 @@
       }
     }
   </script>
-<style data-purpose="custom-utilities">
+  
+  <style type="text/tailwindcss">
     .clip-path-slant {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
     }
@@ -35,347 +44,563 @@
         clip-path: none;
       }
     }
+    
+    /* Calculator Custom Utilities */
+    @layer utilities {
+      .calc-input {
+        @apply w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300;
+      }
+      .calc-label {
+        @apply block text-white/80 text-sm font-semibold mb-2;
+      }
+      select.calc-input option {
+        @apply bg-sersig-dark-blue text-white;
+      }
+    }
   </style>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<div class="hidden lg:flex justify-end items-center px-gutter py-2 gap-6 border-b border-outline-variant/50 text-xs font-label-bold mx-auto w-full bg-sersig-dark-blue text-white">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">phone</span>
-<span class="">311 534 4811</span>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white">
+
+<div class="hidden lg:flex justify-end items-center px-8 py-2 gap-6 border-b border-white/10 text-xs font-bold mx-auto w-full bg-sersig-dark-blue text-white">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">phone</span>
+    <span>311 534 4811</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">schedule</span>
+    <span>Lun - Vie: 7:00 am - 5:00 pm</span>
+  </div>
 </div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">schedule</span>
-<span class="">Lun - Vie: 7:00 am - 5:00 pm</span>
-</div>
-<div class="flex items-center gap-2 ml-4">
-</div>
-</div>
+
 <!-- BEGIN: Header -->
 <header class="bg-white shadow-sm relative z-50">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-24">
-<!-- Logo -->
-<div class="flex-shrink-0 flex items-center">
-<a class="flex items-center gap-3" href="#">
-<div class="w-20 h-20 flex items-center justify-center overflow-hidden"><img alt="SERSIG Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW"></div>
-<div class="flex flex-col">
-</div>
-</a>
-</div>
-<!-- Desktop Navigation -->
-<nav class="hidden md:flex space-x-8">
-<a class="text-sersig-blue font-semibold border-b-2 border-sersig-blue pb-1 text-sm tracking-wide" href="#">INICIO</a>
-<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">NOSOTROS</a>
-<div class="relative group cursor-pointer">
-<a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="#">
-              SERVICIOS <i class="fas fa-chevron-down ml-1 text-xs"></i>
-</a>
-</div>
-<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CALCULADORA</a>
-<a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CONTACTO</a>
-</nav>
-<!-- Contact Info & CTA -->
-<div class="hidden lg:flex items-center space-x-6">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sersig-blue">
-<i class="fas fa-phone-alt"></i>
-</div>
-<div class="flex flex-col">
-<span class="font-display font-bold text-lg text-gray-900 leading-tight">311 534 4811</span>
-<span class="text-xs text-gray-500 font-medium">Lun - Vie: 7:00 am - 5:00 pm</span>
-</div>
-</div>
-<a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center text-sm tracking-wide" href="#">COTIZAR AHORA</a>
-</div>
-<!-- Mobile menu button -->
-<div class="md:hidden flex items-center">
-<button class="text-gray-600 hover:text-gray-900 focus:outline-none">
-<i class="fas fa-bars text-2xl"></i>
-</button>
-</div>
-</div>
-</div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a class="flex items-center gap-3" href="#">
+          <div class="w-33 h-33 flex items-center justify-center overflow-hidden">
+            <img alt="SERSIG Logo" class="w-20 h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
+          </div>
+        </a>
+      </div>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a class="text-sersig-blue font-semibold border-b-2 border-sersig-blue pb-1 text-sm tracking-wide" href="#">INICIO</a>
+        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">NOSOTROS</a>
+        <div class="relative group cursor-pointer">
+          <a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="#">
+            SERVICIOS <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+        </div>
+        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#calculadora">CALCULADORA</a>
+        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="#">CONTACTO</a>
+      </nav>
+      <!-- Contact Info & CTA -->
+      <div class="hidden lg:flex items-center space-x-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sersig-blue">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-lg text-gray-900 leading-tight">311 534 4811</span>
+            <span class="text-xs text-gray-500 font-medium">Lun - Vie: 7:00 am - 5:00 pm</span>
+          </div>
+        </div>
+        <a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center text-sm tracking-wide shadow-lg shadow-blue-900/20" href="#">COTIZAR AHORA</a>
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
 <!-- END: Header -->
-<!-- BEGIN: Hero Section -->
-<main>
-<section class="relative bg-sersig-light-bg overflow-hidden min-h-[600px] flex items-center">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
-<!-- Left Content -->
-<div class="pt-8 lg:pt-16 pb-12 max-w-2xl">
-<h2 class="text-sersig-blue font-display font-bold tracking-wider uppercase mb-4 text-sm sm:text-base flex items-center gap-2">
-            PROTEGEMOS LO MÁS IMPORTANTE:
-          </h2>
-<h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-[1.1] mb-6 uppercase">
-            TU EMPRESA,<br>
-<span class="text-sersig-blue">TU EQUIPO, TU FUTURO.</span>
-</h1>
-<p class="text-gray-600 text-lg sm:text-xl mb-8 leading-relaxed max-w-lg">
-            Brindamos servicios de recarga, mantenimiento y venta de extintores, capacitaciones y equipos de seguridad industrial con los más altos estándares de calidad.
-          </p>
-<div class="flex flex-wrap gap-4 mb-12">
-<a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-3.5 px-8 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-blue-900/20" href="#">
-<i class="fab fa-whatsapp text-lg"></i> ESCRÍBENOS POR WHATSAPP
-            </a>
-<a class="bg-white hover:bg-gray-50 text-sersig-blue border-2 border-gray-200 font-semibold py-3.5 px-8 rounded-lg transition-colors flex items-center gap-2 shadow-sm" href="#">
-<i class="far fa-file-alt text-lg"></i> SOLICITAR COTIZACIÓN
-            </a>
-</div>
-<!-- Trust Badges -->
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-gray-200">
-<div class="flex items-start gap-3">
-<div class="text-sersig-blue mt-1"><i class="fas fa-check-circle text-xl"></i></div>
-<p class="text-xs font-semibold text-gray-700 leading-tight">Cumplimos con la normatividad colombiana</p>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-sersig-blue mt-1"><i class="fas fa-user-shield text-xl"></i></div>
-<p class="text-xs font-semibold text-gray-700 leading-tight">Personal capacitado y certificado</p>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-sersig-blue mt-1"><i class="fas fa-certificate text-xl"></i></div>
-<p class="text-xs font-semibold text-gray-700 leading-tight">Equipos y agentes certificados</p>
-</div>
-<div class="flex items-start gap-3">
-<div class="text-sersig-blue mt-1"><i class="fas fa-stopwatch text-xl"></i></div>
-<p class="text-xs font-semibold text-gray-700 leading-tight">Respuesta rápida y servicio confiable</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Image Background (Desktop) -->
-<div class="hidden lg:block absolute top-0 right-0 w-[55%] h-full z-0 clip-path-slant">
-<img alt="Trabajador de seguridad industrial inspeccionando extintor" class="w-full h-full object-cover object-center mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRm4UqeFrV6btwtAuxYdcJvQlC1xQle14YKO-Cj-oJw6vGk029_ksJlu6uvo7mS-vTvqIeX3YH55Iq22nxvT1slfnQxBBDx3BLwsPzhYY6UURAhOthRYBK0Ja5tLoU0OF6iqJgPG2KlXRlXssvJVgSSqmueF2qMT4eFGmifn93y3_i2qAeR6_j70kfq7qONBZM_lW-_JPTPvCH2PlE6MTdfl5qPIpgHwKL_LazWYnlg5c6YCJCcAGTxrM7cbeVYAgBbnoJxVfdAAt">
-<div class="absolute inset-0 bg-blue-900/40 mix-blend-overlay"></div>
-<!-- Overlay Logo -->
-<div class="absolute bottom-32 right-16 opacity-30 pointer-events-none">
-<div class="w-48 h-48 bg-white/10 flex items-center justify-center rounded-2xl font-display font-bold text-7xl italic relative overflow-hidden backdrop-blur-sm border border-white/20">
-<span class="relative z-10 text-white">S</span>
-</div>
-</div>
-</div>
-</section>
-<!-- BEGIN: Stats Bar -->
-<section class="bg-sersig-dark-blue py-10 relative z-20">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/20">
-<div class="flex items-center justify-center gap-4 text-white px-4">
-<div class="text-4xl opacity-80"><i class="fas fa-shield-alt"></i></div>
-<div>
-<div class="font-display font-bold text-3xl sm:text-4xl">+8</div>
-<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">AÑOS DE EXPERIENCIA</div>
-</div>
-</div>
-<div class="flex items-center justify-center gap-4 text-white px-4">
-<div class="text-4xl opacity-80"><i class="fas fa-users"></i></div>
-<div>
-<div class="font-display font-bold text-3xl sm:text-4xl">+500</div>
-<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">CLIENTES SATISFECHOS</div>
-</div>
-</div>
-<div class="flex items-center justify-center gap-4 text-white px-4">
-<div class="text-4xl opacity-80"><i class="fas fa-fire-extinguisher"></i></div>
-<div>
-<div class="font-display font-bold text-3xl sm:text-4xl">+3.000</div>
-<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">EXTINTORES RECARGADOS</div>
-</div>
-</div>
-<div class="flex items-center justify-center gap-4 text-white px-4">
-<div class="text-4xl opacity-80"><i class="fas fa-award"></i></div>
-<div>
-<div class="font-display font-bold text-3xl sm:text-4xl">100%</div>
-<div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">COMPROMISO Y CALIDAD</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Stats Bar -->
-<!-- BEGIN: Services Preview -->
-<section class="py-16 bg-white">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-12">
-<p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">NUESTROS SERVICIOS</p>
-<h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
-            Soluciones integrales en seguridad industrial
-            <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
-</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Service Card 1 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col">
-<div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-fire-extinguisher"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2">RECARGA DE<br>EXTINTORES</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Recarga con agentes certificados y garantizados.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div>
-</div>
-<!-- Service Card 2 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-tools"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">MANTENIMIENTO<br>DE EXTINTORES</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Mantenimiento preventivo y correctivo según norma.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div></div>
-<!-- Service Card 3 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-shopping-cart"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">VENTA DE<br>EXTINTORES</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Extintores nuevos de alta calidad certificados.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div></div>
-<!-- Service Card 4 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-chalkboard-teacher"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">CAPACITACIONES</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Formación en uso de extintores, brigadas, primeros auxilios y más.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div></div>
-<!-- Service Card 5 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-hard-hat"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">EQUIPOS DE<br>SEGURIDAD</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Elementos de protección personal y señalización.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div></div>
-<!-- Service Card 6 -->
-<div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col"><div class="flex items-start gap-4 mb-4">
-<div class="text-sersig-blue text-3xl"><i class="fas fa-clipboard-check"></i></div>
-<h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">ASESORÍA Y<br>CUMPLIMIENTO</h3>
-</div>
-<p class="text-sm text-gray-600 mb-6">Asesoría en normatividad y cumplimiento legal.</p>
-<div class="mt-auto absolute bottom-6 left-8">
-  <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent hover:bg-sersig-blue hover:text-white transition-all duration-300 rounded-lg">
-    SABER MÁS
-  </button>
-</div></div>
-</div>
-</div>
-</section><section class="py-16 bg-sersig-light-bg">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-12">
-<p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">VALOR AGREGADO</p>
-<h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
-        ¿Por qué elegirnos?
-        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
-</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
-<span class="material-symbols-outlined text-3xl">verified</span>
-</div>
-<h3 class="font-display font-bold text-gray-900 mb-3">Experiencia Certificada</h3>
-<p class="text-sm text-gray-600 leading-relaxed">Más de 8 años en el mercado con personal altamente calificado y certificado.</p>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
-<span class="material-symbols-outlined text-3xl">high_quality</span>
-</div>
-<h3 class="font-display font-bold text-gray-900 mb-3">Equipos de Alta Calidad</h3>
-<p class="text-sm text-gray-600 leading-relaxed">Utilizamos las mejores marcas y agentes certificados para su seguridad contra incendios.</p>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
-<span class="material-symbols-outlined text-3xl">gavel</span>
-</div>
-<h3 class="font-display font-bold text-gray-900 mb-3">Cumplimiento Normativo</h3>
-<p class="text-sm text-gray-600 leading-relaxed">Procesos alineados con la normatividad colombiana e internacional (NFPA).</p>
-</div>
-<div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
-<span class="material-symbols-outlined text-3xl">support_agent</span>
-</div>
-<h3 class="font-display font-bold text-gray-900 mb-3">Atención Personalizada</h3>
-<p class="text-sm text-gray-600 leading-relaxed">Asesoría técnica a la medida de las necesidades específicas de su empresa.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: Services Preview -->
-<!-- BEGIN: Brands Section -->
 
-<!-- END: Brands Section -->
+<main>
+  <!-- BEGIN: Hero Section -->
+  <section class="relative bg-sersig-light-bg overflow-hidden min-h-[600px] flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
+      <!-- Left Content -->
+      <div class="pt-8 lg:pt-16 pb-12 max-w-2xl" data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="text-sersig-blue font-display font-bold tracking-wider uppercase mb-4 text-sm sm:text-base flex items-center gap-2">
+          PROTEGEMOS LO MÁS IMPORTANTE:
+        </h2>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-gray-900 leading-[1.1] mb-6 uppercase">
+          TU EMPRESA,<br>
+          <span class="text-sersig-blue">TU EQUIPO, TU FUTURO.</span>
+        </h1>
+        <p class="text-gray-600 text-lg sm:text-xl mb-8 leading-relaxed max-w-lg" data-aos="fade-up" data-aos-delay="150">
+          Brindamos servicios de recarga, mantenimiento y venta de extintores, capacitaciones y equipos de seguridad industrial con los más altos estándares de calidad.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-12" data-aos="fade-up" data-aos-delay="300">
+          <a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 shadow-lg shadow-blue-900/20" href="#">
+            <i class="fab fa-whatsapp text-lg"></i> ESCRÍBENOS POR WHATSAPP
+          </a>
+          <a class="bg-white hover:bg-gray-50 text-sersig-blue border-2 border-gray-200 font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 shadow-sm" href="#">
+            <i class="far fa-file-alt text-lg"></i> SOLICITAR COTIZACIÓN
+          </a>
+        </div>
+        <!-- Trust Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-gray-200" data-aos="fade-up" data-aos-delay="450">
+          <div class="flex items-start gap-3">
+            <div class="text-sersig-blue mt-1"><i class="fas fa-check-circle text-xl"></i></div>
+            <p class="text-xs font-semibold text-gray-700 leading-tight">Cumplimos con la normatividad colombiana</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="text-sersig-blue mt-1"><i class="fas fa-user-shield text-xl"></i></div>
+            <p class="text-xs font-semibold text-gray-700 leading-tight">Personal capacitado y certificado</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="text-sersig-blue mt-1"><i class="fas fa-certificate text-xl"></i></div>
+            <p class="text-xs font-semibold text-gray-700 leading-tight">Equipos y agentes certificados</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="text-sersig-blue mt-1"><i class="fas fa-stopwatch text-xl"></i></div>
+            <p class="text-xs font-semibold text-gray-700 leading-tight">Respuesta rápida y servicio confiable</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Image Background (Desktop) -->
+      <div class="hidden lg:block absolute top-0 right-0 w-[55%] h-full z-0 clip-path-slant" data-aos="fade-left" data-aos-duration="1200">
+        <img alt="Trabajador de seguridad industrial inspeccionando extintor" class="w-full h-full object-cover object-center mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRm4UqeFrV6btwtAuxYdcJvQlC1xQle14YKO-Cj-oJw6vGk029_ksJlu6uvo7mS-vTvqIeX3YH55Iq22nxvT1slfnQxBBDx3BLwsPzhYY6UURAhOthRYBK0Ja5tLoU0OF6iqJgPG2KlXRlXssvJVgSSqmueF2qMT4eFGmifn93y3_i2qAeR6_j70kfq7qONBZM_lW-_JPTPvCH2PlE6MTdfl5qPIpgHwKL_LazWYnlg5c6YCJCcAGTxrM7cbeVYAgBbnoJxVfdAAt">
+        <div class="absolute inset-0 bg-blue-900/40 mix-blend-overlay"></div>
+        <!-- Overlay Logo -->
+        <div class="absolute bottom-32 right-16 opacity-30 pointer-events-none">
+          <div class="w-48 h-48 bg-white/10 flex items-center justify-center rounded-2xl font-display font-bold text-7xl italic relative overflow-hidden backdrop-blur-sm border border-white/20">
+            <span class="relative z-10 text-white">S</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGIN: Stats Bar -->
+  <section class="bg-sersig-dark-blue py-10 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/20">
+        <div class="flex items-center justify-center gap-4 text-white px-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="text-4xl opacity-80"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <div class="font-display font-bold text-3xl sm:text-4xl">+8</div>
+            <div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">AÑOS DE EXPERIENCIA</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-4 text-white px-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl opacity-80"><i class="fas fa-users"></i></div>
+          <div>
+            <div class="font-display font-bold text-3xl sm:text-4xl">+500</div>
+            <div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">CLIENTES SATISFECHOS</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-4 text-white px-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl opacity-80"><i class="fas fa-fire-extinguisher"></i></div>
+          <div>
+            <div class="font-display font-bold text-3xl sm:text-4xl">+3.000</div>
+            <div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">EXTINTORES RECARGADOS</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-4 text-white px-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl opacity-80"><i class="fas fa-award"></i></div>
+          <div>
+            <div class="font-display font-bold text-3xl sm:text-4xl">100%</div>
+            <div class="text-xs uppercase tracking-wider font-semibold opacity-80 mt-1">COMPROMISO Y CALIDAD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGIN: Services Preview -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">NUESTROS SERVICIOS</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
+          Soluciones integrales en seguridad industrial
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-fire-extinguisher"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2">RECARGA DE<br>EXTINTORES</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Recarga con agentes certificados y garantizados.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+        <!-- Service Card 2 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-tools"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">MANTENIMIENTO<br>DE EXTINTORES</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Mantenimiento preventivo y correctivo según norma.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+        <!-- Service Card 3 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-shopping-cart"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">VENTA DE<br>EXTINTORES</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Extintores nuevos de alta calidad certificados.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+        <!-- Service Card 4 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">CAPACITACIONES</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Formación en uso de extintores, brigadas, primeros auxilios y más.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+        <!-- Service Card 5 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-hard-hat"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">EQUIPOS DE<br>SEGURIDAD</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Elementos de protección personal y señalización.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+        <!-- Service Card 6 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 group cursor-pointer relative overflow-hidden min-h-[280px] flex flex-col" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="text-sersig-blue text-3xl group-hover:scale-110 transition-transform duration-300"><i class="fas fa-clipboard-check"></i></div>
+            <h3 class="font-bold text-gray-900 leading-tight pt-1 text-lg mb-2 uppercase">ASESORÍA Y<br>CUMPLIMIENTO</h3>
+          </div>
+          <p class="text-sm text-gray-600 mb-6">Asesoría en normatividad y cumplimiento legal.</p>
+          <div class="mt-auto absolute bottom-6 left-8">
+            <button class="inline-block px-6 py-2 text-xs font-bold tracking-wider uppercase border-2 border-sersig-blue text-sersig-blue bg-transparent group-hover:bg-sersig-blue group-hover:text-white transition-all duration-300 rounded-lg">
+              SABER MÁS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGIN: Value Added -->
+  <section class="py-16 bg-sersig-light-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">VALOR AGREGADO</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
+          ¿Por qué elegirnos?
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+            <span class="material-symbols-outlined text-3xl">verified</span>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-3">Experiencia Certificada</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Más de 8 años en el mercado con personal altamente calificado y certificado.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+            <span class="material-symbols-outlined text-3xl">high_quality</span>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-3">Equipos de Alta Calidad</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Utilizamos las mejores marcas y agentes certificados para su seguridad contra incendios.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+            <span class="material-symbols-outlined text-3xl">gavel</span>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-3">Cumplimiento Normativo</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Procesos alineados con la normatividad colombiana e internacional (NFPA).</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue mb-6">
+            <span class="material-symbols-outlined text-3xl">support_agent</span>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-3">Atención Personalizada</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Asesoría técnica a la medida de las necesidades específicas de su empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGIN: Calculadora Section -->
+  <section id="calculadora" class="py-16 lg:py-24 bg-sersig-dark-blue relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sersig-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Header -->
+      <div class="text-center mb-12" data-aos="fade-up">
+        <p class="text-blue-400 font-bold tracking-widest text-sm uppercase mb-2">Herramienta gratuita y única en el Caribe</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white inline-block relative pb-4">
+          Calculadora <span class="text-blue-400">Inteligente</span> de Extintores
+        </h2>
+        <p class="text-white/60 max-w-2xl mx-auto mt-4 text-sm sm:text-base">
+          Ingresa los datos de tu establecimiento y obtendrás al instante una recomendación técnica según la NFPA y NTC 2885.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <!-- FORM -->
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm shadow-xl" data-aos="fade-right">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 bg-sersig-blue rounded-xl flex items-center justify-center shadow-lg">
+              <i class="fas fa-calculator text-white"></i>
+            </div>
+            <h3 class="text-white font-display font-bold text-xl">Datos del Establecimiento</h3>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Tipo -->
+            <div>
+              <label class="calc-label">Tipo de establecimiento</label>
+              <select id="calc-tipo" class="calc-input cursor-pointer">
+                <option value="">-- Selecciona --</option>
+                <option value="restaurante">🍽️ Restaurante</option>
+                <option value="oficina">🏢 Oficina</option>
+                <option value="local">🏪 Local comercial</option>
+                <option value="bodega">🏭 Bodega / Almacén</option>
+                <option value="taller">🔧 Taller mecánico</option>
+                <option value="conjunto">🏘️ Conjunto residencial</option>
+                <option value="cocina">👨‍🍳 Cocina industrial</option>
+                <option value="drogueria">💊 Droguería / Farmacia</option>
+                <option value="ferreteria">🔩 Ferretería</option>
+                <option value="industria">⚙️ Industria / Planta</option>
+              </select>
+            </div>
+
+            <!-- Área y pisos -->
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="calc-label">Metros cuadrados (m²)</label>
+                <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input" />
+              </div>
+              <div>
+                <label class="calc-label">Cantidad de pisos</label>
+                <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input" />
+              </div>
+            </div>
+
+            <!-- Áreas -->
+            <div>
+              <label class="calc-label">Cantidad de áreas / zonas separadas</label>
+              <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input" />
+            </div>
+
+            <!-- Nivel de riesgo -->
+            <div>
+              <label class="calc-label">Nivel de riesgo estimado</label>
+              <div class="grid grid-cols-3 gap-3 mt-2">
+                <label class="cursor-pointer group">
+                  <input type="radio" name="riesgo" value="bajo" class="hidden peer" />
+                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-green-500/20 peer-checked:border-green-500 peer-checked:text-green-400 group-hover:border-white/30 transition-all duration-300">
+                    <i class="fas fa-circle-check text-lg mb-1"></i>
+                    <span class="text-xs font-semibold">Bajo</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer group">
+                  <input type="radio" name="riesgo" value="medio" class="hidden peer" />
+                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-yellow-500/20 peer-checked:border-yellow-500 peer-checked:text-yellow-400 group-hover:border-white/30 transition-all duration-300">
+                    <i class="fas fa-triangle-exclamation text-lg mb-1"></i>
+                    <span class="text-xs font-semibold">Medio</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer group">
+                  <input type="radio" name="riesgo" value="alto" class="hidden peer" />
+                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-red-500/20 peer-checked:border-red-500 peer-checked:text-red-400 group-hover:border-white/30 transition-all duration-300">
+                    <i class="fas fa-radiation text-lg mb-1"></i>
+                    <span class="text-xs font-semibold">Alto</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div>
+              <label class="calc-label mb-3 block">Características especiales</label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
+                  <input type="checkbox" id="calc-cocina" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
+                  <div>
+                    <i class="fas fa-fire text-blue-400 mr-1 text-sm"></i>
+                    <span class="text-white/80 text-sm">Tiene cocina</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
+                  <input type="checkbox" id="calc-inflamable" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
+                  <div>
+                    <i class="fas fa-gas-pump text-blue-400 mr-1 text-sm"></i>
+                    <span class="text-white/80 text-sm">Líq. inflamables</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
+                  <input type="checkbox" id="calc-electrico" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
+                  <div>
+                    <i class="fas fa-bolt text-blue-400 mr-1 text-sm"></i>
+                    <span class="text-white/80 text-sm">Eq. eléctricos</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
+                  <input type="checkbox" id="calc-quimicos" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
+                  <div>
+                    <i class="fas fa-flask text-blue-400 mr-1 text-sm"></i>
+                    <span class="text-white/80 text-sm">Almacena químicos</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <button id="calc-btn" class="w-full bg-sersig-blue hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/40 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-2">
+              <i class="fas fa-calculator"></i>
+              Calcular Ahora
+            </button>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="calc-result-wrapper" data-aos="fade-left">
+          <!-- Placeholder -->
+          <div id="calc-placeholder" class="bg-white/5 border border-dashed border-white/20 rounded-3xl p-12 text-center h-full flex flex-col justify-center">
+            <i class="fas fa-fire-extinguisher text-white/20 text-6xl mb-4"></i>
+            <p class="text-white/40 text-base">Completa el formulario y obtén<br/>tu recomendación técnica</p>
+          </div>
+
+          <!-- Result dashboard (hidden by default, handled by JS normally) -->
+          <div id="calc-result" class="hidden">
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-6 mb-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-white font-display font-bold text-xl flex items-center gap-2">
+                  <i class="fas fa-shield-halved text-blue-400"></i> Resultado Técnico
+                </h3>
+                <span id="result-riesgo-badge" class="text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-500/30">Análisis</span>
+              </div>
+              <p id="result-resumen" class="text-white/70 text-sm leading-relaxed">
+                Resultados listos para revisar.
+              </p>
+            </div>
+            
+            <button id="calc-wa-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-500/30 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-4">
+              <i class="fab fa-whatsapp text-xl"></i>
+              Enviar cotización por WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END: Calculadora Section -->
+
 </main>
+
 <!-- BEGIN: Footer -->
-<footer class="bg-sersig-dark-blue text-white pt-16 pb-8">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-<!-- Brand & Desc -->
-<div class="flex flex-col">
-<a class="flex items-center gap-3 mb-6 bg-white p-2 rounded-lg w-max" href="#">
-<img alt="SERSIG Logo" class="w-16 h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
-</a>
-<p class="text-sm text-gray-400 leading-relaxed">
+<footer class="bg-sersig-dark-blue text-white pt-16 pb-8 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <!-- Brand & Desc -->
+      <div class="flex flex-col">
+        <a class="flex items-center gap-3 mb-6 bg-white p-2 rounded-lg w-max" href="#">
+          <img alt="SERSIG Logo" class="w-16 h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed">
           Expertos en seguridad industrial, recarga de extintores y capacitaciones. Protegemos lo que más valoras con calidad y cumplimiento normativo.
         </p>
-</div>
-<!-- Links -->
-<div>
-<h4 class="font-display font-bold text-lg mb-6">Enlaces Rápidos</h4>
-<ul class="space-y-3 text-sm text-gray-400">
-<li class=""><a class="hover:text-white transition-colors" href="#">Nosotros</a></li>
-<li class=""><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
-<li class=""><a class="hover:text-white transition-colors" href="#">Capacitaciones</a></li>
-<li class=""><a class="hover:text-white transition-colors" href="#">Contacto</a></li>
-</ul>
-</div>
-<!-- Legal -->
-<div>
-<h4 class="font-display font-bold text-lg mb-6">Legal</h4>
-<ul class="space-y-3 text-sm text-gray-400">
-<li class=""><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
-<li class=""><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
-</ul>
-</div>
-<!-- Contact -->
-<div>
-<h4 class="font-display font-bold text-lg mb-6">Contacto</h4>
-<ul class="space-y-4 text-sm text-gray-400">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-sersig-blue text-lg">location_on</span>
-<span class="">Barranquilla, Colombia</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-sersig-blue text-lg">phone</span>
-<span class="">+57 311 534 4811</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-sersig-blue text-lg">mail</span>
-<span class="">contacto@sersig.com</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm text-gray-500">
+      </div>
+      <!-- Links -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Enlaces Rápidos</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a class="hover:text-white transition-colors" href="#">Nosotros</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Capacitaciones</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Legal</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Contacto</h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">location_on</span>
+            <span>Barranquilla, Colombia</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">phone</span>
+            <span>+57 311 534 4811</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">mail</span>
+            <span>contacto@sersig.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-gray-500">
         © 2024 SERSIG DEL CARIBE SAS. Todos los derechos reservados.
       </p>
-<div class="flex gap-4">
-<a class="text-gray-500 hover:text-white transition-colors" href="#">
-<i class="fab fa-facebook-f"></i>
-</a>
-<a class="text-gray-500 hover:text-white transition-colors" href="#">
-<i class="fab fa-instagram"></i>
-</a></div></div></div></footer>
+      <div class="flex gap-4">
+        <a class="text-gray-500 hover:text-white transition-colors" href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="text-gray-500 hover:text-white transition-colors" href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-</body></html>
+<!-- AOS Animation Script Setup -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Inicialización de animaciones de scroll
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+  
+  // Scripts básicos visuales para la calculadora (Placeholder a Resultado)
+  document.getElementById('calc-btn').addEventListener('click', function() {
+    document.getElementById('calc-placeholder').classList.add('hidden');
+    document.getElementById('calc-result').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>
