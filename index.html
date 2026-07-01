@@ -304,7 +304,7 @@
     </div>
   </section>
 
-  <!-- BEGIN: Testimonials Carousel (NUEVA SECCIÓN) -->
+  <!-- BEGIN: Testimonials Carousel (CARRUSEL INFINITO) -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" data-aos="fade-up">
@@ -315,7 +315,7 @@
         </h2>
       </div>
 
-      <!-- Carrusel de Comentarios -->
+      <!-- Carrusel de Comentarios Infinito -->
       <div class="relative" data-aos="fade-up" data-aos-delay="200">
         <!-- Contenedor del carrusel -->
         <div id="testimonial-carousel" class="overflow-hidden">
@@ -399,165 +399,220 @@
   </section>
   <!-- END: Testimonials Carousel -->
 
-  <!-- BEGIN: Calculadora Section (MOVIDA A PENÚLTIMA) -->
-  <section id="calculadora" class="py-16 lg:py-24 bg-sersig-dark-blue relative overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sersig-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- BEGIN: Calculadora Section (DISEÑO MÁS PROFESIONAL) -->
+  <section id="calculadora" class="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-sersig-dark-blue to-blue-950 relative overflow-hidden">
+    <!-- Partículas decorativas de fondo -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+      <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <!-- Grid de fondo -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)"/%3E%3C/svg%3E')] opacity-40"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Header -->
-      <div class="text-center mb-12" data-aos="fade-up">
-        <p class="text-blue-400 font-bold tracking-widest text-sm uppercase mb-2">Herramienta gratuita y única en el Caribe</p>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white inline-block relative pb-4">
-          Calculadora <span class="text-blue-400">Inteligente</span> de Extintores
+      <!-- Header mejorado -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-1.5 mb-4">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          <p class="text-blue-300 font-semibold tracking-wider text-xs uppercase">Herramienta gratuita y única en el Caribe</p>
+        </div>
+        <h2 class="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
+          Calculadora <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Inteligente</span> de Extintores
         </h2>
-        <p class="text-white/60 max-w-2xl mx-auto mt-4 text-sm sm:text-base">
+        <p class="text-blue-200/70 max-w-2xl mx-auto text-base leading-relaxed">
           Ingresa los datos de tu establecimiento y obtendrás al instante una recomendación técnica según la NFPA y NTC 2885.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <!-- FORM -->
-        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm shadow-xl" data-aos="fade-right">
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-10 h-10 bg-sersig-blue rounded-xl flex items-center justify-center shadow-lg">
-              <i class="fas fa-calculator text-white"></i>
-            </div>
-            <h3 class="text-white font-display font-bold text-xl">Datos del Establecimiento</h3>
-          </div>
-
-          <div class="space-y-5">
-            <!-- Tipo -->
-            <div>
-              <label class="calc-label">Tipo de establecimiento</label>
-              <select id="calc-tipo" class="calc-input cursor-pointer">
-                <option value="">-- Selecciona --</option>
-                <option value="restaurante">🍽️ Restaurante</option>
-                <option value="oficina">🏢 Oficina</option>
-                <option value="local">🏪 Local comercial</option>
-                <option value="bodega">🏭 Bodega / Almacén</option>
-                <option value="taller">🔧 Taller mecánico</option>
-                <option value="conjunto">🏘️ Conjunto residencial</option>
-                <option value="cocina">👨‍🍳 Cocina industrial</option>
-                <option value="drogueria">💊 Droguería / Farmacia</option>
-                <option value="ferreteria">🔩 Ferretería</option>
-                <option value="industria">⚙️ Industria / Planta</option>
-              </select>
-            </div>
-
-            <!-- Área y pisos -->
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="calc-label">Metros cuadrados (m²)</label>
-                <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input" />
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <!-- FORM con diseño mejorado -->
+        <div class="relative group" data-aos="fade-right">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+          <div class="relative bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
+            <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
+                <i class="fas fa-calculator text-white text-lg"></i>
               </div>
               <div>
-                <label class="calc-label">Cantidad de pisos</label>
-                <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input" />
+                <h3 class="text-white font-display font-bold text-xl">Datos del Establecimiento</h3>
+                <p class="text-blue-300/60 text-xs mt-1">Complete todos los campos para un cálculo preciso</p>
               </div>
             </div>
 
-            <!-- Áreas -->
-            <div>
-              <label class="calc-label">Cantidad de áreas / zonas separadas</label>
-              <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input" />
-            </div>
-
-            <!-- Nivel de riesgo -->
-            <div>
-              <label class="calc-label">Nivel de riesgo estimado</label>
-              <div class="grid grid-cols-3 gap-3 mt-2">
-                <label class="cursor-pointer group">
-                  <input type="radio" name="riesgo" value="bajo" class="hidden peer" />
-                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-green-500/20 peer-checked:border-green-500 peer-checked:text-green-400 group-hover:border-white/30 transition-all duration-300">
-                    <i class="fas fa-circle-check text-lg mb-1"></i>
-                    <span class="text-xs font-semibold">Bajo</span>
-                  </div>
+            <div class="space-y-5">
+              <!-- Tipo -->
+              <div>
+                <label class="calc-label flex items-center gap-2">
+                  <i class="fas fa-building text-blue-400 text-xs"></i>
+                  Tipo de establecimiento
                 </label>
-                <label class="cursor-pointer group">
-                  <input type="radio" name="riesgo" value="medio" class="hidden peer" />
-                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-yellow-500/20 peer-checked:border-yellow-500 peer-checked:text-yellow-400 group-hover:border-white/30 transition-all duration-300">
-                    <i class="fas fa-triangle-exclamation text-lg mb-1"></i>
-                    <span class="text-xs font-semibold">Medio</span>
-                  </div>
-                </label>
-                <label class="cursor-pointer group">
-                  <input type="radio" name="riesgo" value="alto" class="hidden peer" />
-                  <div class="flex flex-col items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-white/70 peer-checked:bg-red-500/20 peer-checked:border-red-500 peer-checked:text-red-400 group-hover:border-white/30 transition-all duration-300">
-                    <i class="fas fa-radiation text-lg mb-1"></i>
-                    <span class="text-xs font-semibold">Alto</span>
-                  </div>
-                </label>
+                <select id="calc-tipo" class="calc-input cursor-pointer bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl">
+                  <option value="">-- Selecciona --</option>
+                  <option value="restaurante">🍽️ Restaurante</option>
+                  <option value="oficina">🏢 Oficina</option>
+                  <option value="local">🏪 Local comercial</option>
+                  <option value="bodega">🏭 Bodega / Almacén</option>
+                  <option value="taller">🔧 Taller mecánico</option>
+                  <option value="conjunto">🏘️ Conjunto residencial</option>
+                  <option value="cocina">👨‍🍳 Cocina industrial</option>
+                  <option value="drogueria">💊 Droguería / Farmacia</option>
+                  <option value="ferreteria">🔩 Ferretería</option>
+                  <option value="industria">⚙️ Industria / Planta</option>
+                </select>
               </div>
-            </div>
 
-            <!-- Checkboxes -->
-            <div>
-              <label class="calc-label mb-3 block">Características especiales</label>
-              <div class="grid grid-cols-2 gap-3">
-                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
-                  <input type="checkbox" id="calc-cocina" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
-                  <div>
-                    <i class="fas fa-fire text-blue-400 mr-1 text-sm"></i>
-                    <span class="text-white/80 text-sm">Tiene cocina</span>
-                  </div>
-                </label>
-                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
-                  <input type="checkbox" id="calc-inflamable" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
-                  <div>
-                    <i class="fas fa-gas-pump text-blue-400 mr-1 text-sm"></i>
-                    <span class="text-white/80 text-sm">Líq. inflamables</span>
-                  </div>
-                </label>
-                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
-                  <input type="checkbox" id="calc-electrico" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
-                  <div>
-                    <i class="fas fa-bolt text-blue-400 mr-1 text-sm"></i>
-                    <span class="text-white/80 text-sm">Eq. eléctricos</span>
-                  </div>
-                </label>
-                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/10 transition-colors">
-                  <input type="checkbox" id="calc-quimicos" class="accent-blue-500 w-4 h-4 rounded border-gray-300" />
-                  <div>
-                    <i class="fas fa-flask text-blue-400 mr-1 text-sm"></i>
-                    <span class="text-white/80 text-sm">Almacena químicos</span>
-                  </div>
-                </label>
+              <!-- Área y pisos -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="calc-label flex items-center gap-2">
+                    <i class="fas fa-vector-square text-blue-400 text-xs"></i>
+                    Metros cuadrados (m²)
+                  </label>
+                  <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
+                </div>
+                <div>
+                  <label class="calc-label flex items-center gap-2">
+                    <i class="fas fa-layer-group text-blue-400 text-xs"></i>
+                    Cantidad de pisos
+                  </label>
+                  <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
+                </div>
               </div>
-            </div>
 
-            <!-- CTA -->
-            <button id="calc-btn" class="w-full bg-sersig-blue hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/40 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-2">
-              <i class="fas fa-calculator"></i>
-              Calcular Ahora
-            </button>
+              <!-- Áreas -->
+              <div>
+                <label class="calc-label flex items-center gap-2">
+                  <i class="fas fa-map-pin text-blue-400 text-xs"></i>
+                  Cantidad de áreas / zonas separadas
+                </label>
+                <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
+              </div>
+
+              <!-- Nivel de riesgo -->
+              <div>
+                <label class="calc-label flex items-center gap-2 mb-3">
+                  <i class="fas fa-exclamation-triangle text-blue-400 text-xs"></i>
+                  Nivel de riesgo estimado
+                </label>
+                <div class="grid grid-cols-3 gap-3">
+                  <label class="cursor-pointer group">
+                    <input type="radio" name="riesgo" value="bajo" class="hidden peer" />
+                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-green-500/10 peer-checked:border-green-500/50 peer-checked:text-green-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
+                      <i class="fas fa-circle-check text-xl mb-2"></i>
+                      <span class="text-xs font-semibold">Bajo</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer group">
+                    <input type="radio" name="riesgo" value="medio" class="hidden peer" />
+                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-yellow-500/10 peer-checked:border-yellow-500/50 peer-checked:text-yellow-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
+                      <i class="fas fa-triangle-exclamation text-xl mb-2"></i>
+                      <span class="text-xs font-semibold">Medio</span>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer group">
+                    <input type="radio" name="riesgo" value="alto" class="hidden peer" />
+                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-red-500/10 peer-checked:border-red-500/50 peer-checked:text-red-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
+                      <i class="fas fa-radiation text-xl mb-2"></i>
+                      <span class="text-xs font-semibold">Alto</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Checkboxes -->
+              <div>
+                <label class="calc-label flex items-center gap-2 mb-3">
+                  <i class="fas fa-list-check text-blue-400 text-xs"></i>
+                  Características especiales
+                </label>
+                <div class="grid grid-cols-2 gap-3">
+                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
+                    <input type="checkbox" id="calc-cocina" class="accent-blue-500 w-4 h-4 rounded" />
+                    <div class="flex items-center gap-2">
+                      <i class="fas fa-fire text-blue-400 text-sm"></i>
+                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Tiene cocina</span>
+                    </div>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
+                    <input type="checkbox" id="calc-inflamable" class="accent-blue-500 w-4 h-4 rounded" />
+                    <div class="flex items-center gap-2">
+                      <i class="fas fa-gas-pump text-blue-400 text-sm"></i>
+                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Líq. inflamables</span>
+                    </div>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
+                    <input type="checkbox" id="calc-electrico" class="accent-blue-500 w-4 h-4 rounded" />
+                    <div class="flex items-center gap-2">
+                      <i class="fas fa-bolt text-blue-400 text-sm"></i>
+                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Eq. eléctricos</span>
+                    </div>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
+                    <input type="checkbox" id="calc-quimicos" class="accent-blue-500 w-4 h-4 rounded" />
+                    <div class="flex items-center gap-2">
+                      <i class="fas fa-flask text-blue-400 text-sm"></i>
+                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Almacena químicos</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- CTA mejorado -->
+              <button id="calc-btn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-4 rounded-2xl shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-4 group border border-blue-400/20">
+                <i class="fas fa-calculator group-hover:scale-110 transition-transform"></i>
+                Calcular Ahora
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- RESULTS -->
+        <!-- RESULTS con diseño mejorado -->
         <div id="calc-result-wrapper" data-aos="fade-left">
-          <!-- Placeholder -->
-          <div id="calc-placeholder" class="bg-white/5 border border-dashed border-white/20 rounded-3xl p-12 text-center h-full flex flex-col justify-center">
-            <i class="fas fa-fire-extinguisher text-white/20 text-6xl mb-4"></i>
-            <p class="text-white/40 text-base">Completa el formulario y obtén<br/>tu recomendación técnica</p>
+          <!-- Placeholder mejorado -->
+          <div id="calc-placeholder" class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/50 to-cyan-500/50 rounded-3xl blur opacity-30"></div>
+            <div class="relative bg-slate-900/90 border border-dashed border-white/10 rounded-3xl p-12 text-center h-full flex flex-col justify-center items-center backdrop-blur-xl">
+              <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-fire-extinguisher text-blue-400/50 text-4xl"></i>
+              </div>
+              <p class="text-blue-200/50 text-base font-medium">Completa el formulario y obtén<br/>tu recomendación técnica al instante</p>
+              <div class="mt-6 flex gap-2">
+                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce"></span>
+                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce animation-delay-200"></span>
+                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce animation-delay-400"></span>
+              </div>
+            </div>
           </div>
 
-          <!-- Result dashboard (hidden by default, handled by JS normally) -->
+          <!-- Result dashboard mejorado -->
           <div id="calc-result" class="hidden">
-            <div class="bg-white/5 border border-white/10 rounded-3xl p-6 mb-4 backdrop-blur-sm">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="text-white font-display font-bold text-xl flex items-center gap-2">
-                  <i class="fas fa-shield-halved text-blue-400"></i> Resultado Técnico
-                </h3>
-                <span id="result-riesgo-badge" class="text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-500/30">Análisis</span>
+            <div class="relative group mb-6">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500/50 to-emerald-500/50 rounded-3xl blur opacity-30"></div>
+              <div class="relative bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
+                <div class="flex items-center justify-between mb-6">
+                  <h3 class="text-white font-display font-bold text-xl flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                      <i class="fas fa-shield-halved text-white"></i>
+                    </div>
+                    Resultado Técnico
+                  </h3>
+                  <span id="result-riesgo-badge" class="text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border border-blue-500/30">Análisis</span>
+                </div>
+                <div class="bg-white/[0.03] rounded-2xl p-6 border border-white/[0.08]">
+                  <p id="result-resumen" class="text-white/70 text-sm leading-relaxed">
+                    Resultados listos para revisar.
+                  </p>
+                </div>
               </div>
-              <p id="result-resumen" class="text-white/70 text-sm leading-relaxed">
-                Resultados listos para revisar.
-              </p>
             </div>
             
-            <button id="calc-wa-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-500/30 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-4">
-              <i class="fab fa-whatsapp text-xl"></i>
+            <button id="calc-wa-btn" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 rounded-2xl shadow-xl shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-base group border border-green-400/20">
+              <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
               Enviar cotización por WhatsApp
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
         </div>
@@ -693,14 +748,44 @@
     document.getElementById('calc-result').classList.remove('hidden');
   });
 
-  // Lógica del Carrusel de Testimonios
+  // Lógica del Carrusel de Testimonios INFINITO
   document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById('testimonial-track');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-    let currentIndex = 0;
-    const totalSlides = track.children.length;
-    let slidesToShow = 3; // Por defecto para pantallas grandes
+    const slides = track.children;
+    const totalSlides = slides.length;
+    let slidesToShow = 3;
+    let currentIndex = totalSlides; // Empezamos desde el primer clon del inicio
+    let slideWidth = 0;
+    let isTransitioning = false;
+
+    // Clonar los slides para el efecto infinito
+    function setupInfiniteCarousel() {
+      // Clonar los primeros slidesToShow elementos al final
+      for (let i = 0; i < slidesToShow; i++) {
+        const cloneEnd = slides[i].cloneNode(true);
+        track.appendChild(cloneEnd);
+      }
+      
+      // Clonar los últimos slidesToShow elementos al inicio
+      for (let i = totalSlides - 1; i >= totalSlides - slidesToShow; i--) {
+        const cloneStart = slides[i].cloneNode(true);
+        track.insertBefore(cloneStart, track.firstChild);
+      }
+      
+      // Actualizar el total de slides después de clonar
+      updateSlideWidth();
+      // Posicionar en el primer slide real
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function updateSlideWidth() {
+      if (track.children.length > 0) {
+        slideWidth = track.children[0].getBoundingClientRect().width;
+      }
+    }
 
     function updateSlidesToShow() {
       if (window.innerWidth < 768) {
@@ -710,41 +795,126 @@
       } else {
         slidesToShow = 3;
       }
-      // Recalcular el index máximo y ajustar el actual si es necesario
-      const maxIndex = totalSlides - slidesToShow;
-      if (currentIndex > maxIndex) {
-        currentIndex = maxIndex;
-      }
-      moveCarousel();
+      
+      // Reconstruir el carrusel con los nuevos clones
+      resetCarousel();
     }
 
-    function moveCarousel() {
-      const slideWidth = track.children[0].getBoundingClientRect().width;
+    function resetCarousel() {
+      // Eliminar todos los clones existentes
+      const allSlides = track.querySelectorAll('.flex-shrink-0');
+      const originalSlides = [];
+      
+      // Guardar solo los originales (los primeros totalSlides)
+      for (let i = slidesToShow; i < slidesToShow + totalSlides; i++) {
+        if (allSlides[i]) {
+          originalSlides.push(allSlides[i].cloneNode(true));
+        }
+      }
+      
+      // Limpiar el track
+      track.innerHTML = '';
+      
+      // Reinsertar los originales
+      originalSlides.forEach(slide => track.appendChild(slide));
+      
+      // Reconfigurar
+      setupInfiniteCarousel();
+      currentIndex = slidesToShow;
+      updateSlideWidth();
+      track.style.transition = 'none';
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
 
-    nextBtn.addEventListener('click', () => {
-      const maxIndex = totalSlides - slidesToShow;
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-        moveCarousel();
+    function moveCarousel(instant = false) {
+      if (instant) {
+        track.style.transition = 'none';
+      } else {
+        track.style.transition = 'transform 0.5s ease-in-out';
       }
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function handleInfiniteScroll() {
+      const maxIndex = totalSlides + slidesToShow - 1;
+      
+      // Si llegamos al final de los clones, saltar al inicio real
+      if (currentIndex > maxIndex) {
+        currentIndex = slidesToShow;
+        moveCarousel(true);
+        setTimeout(() => {
+          track.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
+      }
+      
+      // Si llegamos al inicio de los clones, saltar al final real
+      if (currentIndex < slidesToShow) {
+        currentIndex = maxIndex - (slidesToShow - 1);
+        moveCarousel(true);
+        setTimeout(() => {
+          track.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
+      }
+    }
+
+    track.addEventListener('transitionend', function() {
+      isTransitioning = false;
+      handleInfiniteScroll();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex++;
+      moveCarousel();
     });
 
     prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex--;
+      moveCarousel();
+    });
+
+    // Auto-play opcional
+    let autoplayInterval = setInterval(() => {
+      if (!isTransitioning) {
+        isTransitioning = true;
+        currentIndex++;
         moveCarousel();
       }
+    }, 4000);
+
+    // Pausar autoplay al hacer hover
+    const carouselContainer = document.getElementById('testimonial-carousel');
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    carouselContainer.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(() => {
+        if (!isTransitioning) {
+          isTransitioning = true;
+          currentIndex++;
+          moveCarousel();
+        }
+      }, 4000);
     });
 
     // Actualizar slidesToShow al redimensionar la ventana
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-      updateSlidesToShow();
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updateSlidesToShow();
+      }, 250);
     });
 
     // Inicializar
-    updateSlidesToShow();
+    setupInfiniteCarousel();
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    
+    // Forzar un reflow y luego habilitar la transición
+    track.offsetHeight;
+    track.style.transition = 'transform 0.5s ease-in-out';
   });
 </script>
 </body>
