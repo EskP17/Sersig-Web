@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Contacto - Sersig del Caribe SAS</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sersig-blue': '#1e3a8a',
+            'sersig-light-bg': '#f8fafc',
+            'sersig-gray': '#475569',
+            'sersig-dark-blue': '#0f172a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
+    }
+    
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 280px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+      padding: 8px 0;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      color: #475569;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .dropdown-menu a:hover {
+      background: #f1f5f9;
+      color: #1e3a8a;
+    }
+    html { scroll-behavior: smooth; }
+    #mobile-menu-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    #mobile-menu-panel.open { max-height: 1600px; }
+    .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .mobile-accordion-content.open { max-height: 700px; }
+    .mobile-chevron { transition: transform 0.3s ease; }
+    .mobile-chevron.rotated { transform: rotate(180deg); }
+    .fab-calc { position: fixed; right: 18px; bottom: 22px; z-index: 200; }
+    .fab-pulse { position: relative; }
+    .fab-pulse::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: #1e3a8a;
+      animation: fabPulse 2.2s ease-out infinite;
+      z-index: -1;
+    }
+    @keyframes fabPulse {
+      0% { transform: scale(1); opacity: 0.55; }
+      100% { transform: scale(1.9); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-white">
+<!-- ===== HEADER ===== -->
+<!-- Utility Bar -->
+<div class="hidden lg:flex justify-end items-center px-8 py-2 gap-6 border-b border-white/10 text-xs font-bold mx-auto w-full bg-sersig-dark-blue text-white">
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">phone</span>
+    <span>311 534 4811</span>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm">schedule</span>
+    <span>Lun - Vie: 7:00 am - 5:00 pm</span>
+  </div>
+</div>
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a class="flex items-center gap-3" href="index.html">
+          <div class="w-33 h-33 flex items-center justify-center overflow-hidden">
+            <img alt="SERSIG Logo" class="w-20 h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
+          </div>
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-5">
+        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="index.html">INICIO</a>
+        
+        <!-- Dropdown Nosotros -->
+        <div class="dropdown">
+          <a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="about.html">
+            NOSOTROS <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="about.html#historia"><i class="fas fa-book-open text-sersig-blue"></i> Nuestra Historia</a>
+            <a href="about.html#mision"><i class="fas fa-rocket text-sersig-blue"></i> Nuestra Misión</a>
+            <a href="about.html#vision"><i class="fas fa-eye text-sersig-blue"></i> Nuestra Visión</a>
+            <a href="about.html#valores"><i class="fas fa-star text-sersig-blue"></i> Nuestros Valores</a>
+            <a href="about.html#compromiso"><i class="fas fa-heart text-sersig-blue"></i> Nuestro Compromiso</a>
+            <a href="about.html#por-que-elegirnos"><i class="fas fa-check-circle text-sersig-blue"></i> ¿Por qué elegir SERSIG DEL CARIBE SAS?</a>
+            <a href="about.html#mensaje-fundador"><i class="fas fa-user-tie text-sersig-blue"></i> Mensaje del Fundador</a>
+          </div>
+        </div>
+        
+        <!-- Dropdown Servicios -->
+        <div class="dropdown">
+          <a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="servicios.html">
+            SERVICIOS <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="servicios.html#recarga"><i class="fas fa-fire-extinguisher text-sersig-blue"></i> Recarga de Extintores</a>
+            <a href="servicios.html#mantenimiento"><i class="fas fa-tools text-sersig-blue"></i> Mantenimiento de Extintores</a>
+            <a href="servicios.html#venta"><i class="fas fa-shopping-cart text-sersig-blue"></i> Venta de Extintores</a>
+            <a href="servicios.html#inspeccion"><i class="fas fa-magnifying-glass text-sersig-blue"></i> Inspección y Diagnóstico</a>
+            <a href="servicios.html#equipos-contra-incendio"><i class="fas fa-shield-halved text-sersig-blue"></i> Equipos Contra Incendio</a>
+            <a href="servicios.html#senalizacion"><i class="fas fa-sign-hanging text-sersig-blue"></i> Señalización de Seguridad</a>
+            <a href="servicios.html#epp"><i class="fas fa-hard-hat text-sersig-blue"></i> Elementos de Protección Personal (EPP)</a>
+            <a href="servicios.html#botiquines"><i class="fas fa-briefcase-medical text-sersig-blue"></i> Botiquines de Primeros Auxilios</a>
+            <a href="servicios.html#capacitaciones"><i class="fas fa-chalkboard-teacher text-sersig-blue"></i> Capacitaciones Empresariales</a>
+            <a href="servicios.html#sgsst"><i class="fas fa-clipboard-check text-sersig-blue"></i> Asesoría, Diseño, Implementación y Ejecución SG-SST</a>
+          </div>
+        </div>
+
+        <!-- Dropdown Capacitaciones -->
+        <div class="dropdown">
+          <a class="text-gray-600 hover:text-sersig-blue font-semibold flex items-center transition-colors text-sm tracking-wide" href="servicios.html#capacitaciones">
+            CAPACITACIONES <i class="fas fa-chevron-down ml-1 text-xs"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="servicios.html#cap-uso-manejo"><i class="fas fa-fire-extinguisher text-sersig-blue"></i> Uso y Manejo de Extintores</a>
+            <a href="servicios.html#cap-primeros-auxilios"><i class="fas fa-kit-medical text-sersig-blue"></i> Primeros Auxilios Básicos</a>
+            <a href="servicios.html#cap-evacuacion"><i class="fas fa-person-running text-sersig-blue"></i> Evacuación, Rescate y Prevención</a>
+            <a href="servicios.html#cap-aph"><i class="fas fa-truck-medical text-sersig-blue"></i> APH Básico</a>
+          </div>
+        </div>
+       
+        <a class="text-gray-600 hover:text-sersig-blue font-semibold transition-colors text-sm tracking-wide" href="index.html#calculadora">CALCULADORA</a>
+        <a class="text-sersig-blue font-semibold border-b-2 border-sersig-blue pb-1 text-sm tracking-wide" href="contacto.html">CONTACTO</a>
+      </nav>
+      
+      <!-- Contact Info & CTA -->
+      <div class="hidden lg:flex items-center space-x-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sersig-blue">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-lg text-gray-900 leading-tight">311 534 4811</span>
+            <span class="text-xs text-gray-500 font-medium">Lun - Vie: 7:00 am - 5:00 pm</span>
+          </div>
+        </div>
+        <a class="bg-sersig-blue hover:bg-blue-800 text-white font-semibold py-2.5 px-5 rounded-lg transition-colors flex items-center text-sm tracking-wide shadow-lg shadow-blue-900/20" href="https://wa.me/573115344811" target="_blank" rel="noopener">COTIZAR AHORA</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu-panel" class="md:hidden border-t border-gray-100 bg-white">
+    <div class="px-4 py-4 space-y-1">
+      <a href="index.html" class="block py-3 font-semibold text-gray-700 text-sm">INICIO</a>
+
+      <div>
+        <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 font-semibold text-gray-700 text-sm">
+          NOSOTROS <i class="fas fa-chevron-down mobile-chevron text-xs"></i>
+        </button>
+        <div class="mobile-accordion-content pl-3 space-y-1">
+          <a href="about.html#historia" class="block py-2 text-sm text-gray-600">Nuestra Historia</a>
+          <a href="about.html#mision" class="block py-2 text-sm text-gray-600">Nuestra Misión</a>
+          <a href="about.html#vision" class="block py-2 text-sm text-gray-600">Nuestra Visión</a>
+          <a href="about.html#valores" class="block py-2 text-sm text-gray-600">Nuestros Valores</a>
+          <a href="about.html#compromiso" class="block py-2 text-sm text-gray-600">Nuestro Compromiso</a>
+          <a href="about.html#por-que-elegirnos" class="block py-2 text-sm text-gray-600">¿Por qué elegirnos?</a>
+          <a href="about.html#mensaje-fundador" class="block py-2 text-sm text-gray-600">Mensaje del Fundador</a>
+        </div>
+      </div>
+
+      <div>
+        <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 font-semibold text-gray-700 text-sm">
+          SERVICIOS <i class="fas fa-chevron-down mobile-chevron text-xs"></i>
+        </button>
+        <div class="mobile-accordion-content pl-3 space-y-1">
+          <a href="servicios.html#recarga" class="block py-2 text-sm text-gray-600">Recarga de Extintores</a>
+          <a href="servicios.html#mantenimiento" class="block py-2 text-sm text-gray-600">Mantenimiento de Extintores</a>
+          <a href="servicios.html#venta" class="block py-2 text-sm text-gray-600">Venta de Extintores</a>
+          <a href="servicios.html#inspeccion" class="block py-2 text-sm text-gray-600">Inspección y Diagnóstico</a>
+          <a href="servicios.html#equipos-contra-incendio" class="block py-2 text-sm text-gray-600">Equipos Contra Incendio</a>
+          <a href="servicios.html#senalizacion" class="block py-2 text-sm text-gray-600">Señalización de Seguridad</a>
+          <a href="servicios.html#epp" class="block py-2 text-sm text-gray-600">Elementos de Protección Personal (EPP)</a>
+          <a href="servicios.html#botiquines" class="block py-2 text-sm text-gray-600">Botiquines de Primeros Auxilios</a>
+          <a href="servicios.html#capacitaciones" class="block py-2 text-sm text-gray-600">Capacitaciones Empresariales</a>
+          <a href="servicios.html#sgsst" class="block py-2 text-sm text-gray-600">Asesoría y Ejecución SG-SST</a>
+        </div>
+      </div>
+
+      <div>
+        <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 font-semibold text-gray-700 text-sm">
+          CAPACITACIONES <i class="fas fa-chevron-down mobile-chevron text-xs"></i>
+        </button>
+        <div class="mobile-accordion-content pl-3 space-y-1">
+          <a href="servicios.html#cap-uso-manejo" class="block py-2 text-sm text-gray-600">Uso y Manejo de Extintores</a>
+          <a href="servicios.html#cap-primeros-auxilios" class="block py-2 text-sm text-gray-600">Primeros Auxilios Básicos</a>
+          <a href="servicios.html#cap-evacuacion" class="block py-2 text-sm text-gray-600">Evacuación, Rescate y Prevención</a>
+          <a href="servicios.html#cap-aph" class="block py-2 text-sm text-gray-600">APH Básico</a>
+        </div>
+      </div>
+
+      <a href="index.html#calculadora" class="block py-3 font-semibold text-gray-700 text-sm">CALCULADORA</a>
+      <a href="contacto.html" class="block py-3 font-semibold text-sersig-blue text-sm">CONTACTO</a>
+
+      <a href="https://wa.me/573115344811" target="_blank" rel="noopener" class="mt-3 block text-center bg-sersig-blue text-white font-semibold py-3 rounded-lg text-sm">COTIZAR AHORA</a>
+    </div>
+  </div>
+</header>
+<!-- ===== END HEADER ===== -->
+<main class="flex-grow">
+
+  <!-- ===== HERO SECTION - CONTACTO ===== -->
+  <section class="relative bg-gradient-to-br from-sersig-dark-blue via-sersig-blue to-blue-900 overflow-hidden py-20 lg:py-28">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center">
+        <div class="flex items-center justify-center gap-2 text-blue-200/70 text-xs font-semibold uppercase tracking-wider mb-6">
+          <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
+          <i class="fas fa-chevron-right text-[10px]"></i>
+          <span class="text-white">Contacto</span>
+        </div>
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+          <p class="text-blue-200 font-semibold tracking-wider text-xs uppercase">Estamos para ayudarle</p>
+        </span>
+        <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+          Hablemos de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Seguridad de su Empresa</span>
+        </h1>
+        <p class="text-blue-200/80 text-lg max-w-3xl mx-auto leading-relaxed">
+          Escríbanos, llámenos o visítenos. Nuestro equipo le dará una asesoría clara y sin compromiso sobre lo que su empresa necesita.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT INFO CARDS ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="https://wa.me/573115344811" target="_blank" rel="noopener" class="bg-sersig-light-bg rounded-2xl p-7 text-center card-hover flex flex-col items-center border border-gray-100" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-14 h-14 bg-green-500/10 rounded-full flex items-center justify-center text-green-600 text-2xl mb-4">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-1">WhatsApp</h3>
+          <p class="text-sm text-gray-600">311 534 4811</p>
+        </a>
+        <a href="tel:+573115344811" class="bg-sersig-light-bg rounded-2xl p-7 text-center card-hover flex flex-col items-center border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue text-2xl mb-4">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-1">Teléfono</h3>
+          <p class="text-sm text-gray-600">311 534 4811</p>
+        </a>
+        <a href="mailto:contacto@sersig.com" class="bg-sersig-light-bg rounded-2xl p-7 text-center card-hover flex flex-col items-center border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue text-2xl mb-4">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-1">Correo</h3>
+          <p class="text-sm text-gray-600">contacto@sersig.com</p>
+        </a>
+        <div class="bg-sersig-light-bg rounded-2xl p-7 text-center card-hover flex flex-col items-center border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-sersig-blue text-2xl mb-4">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="font-display font-bold text-gray-900 mb-1">Horario</h3>
+          <p class="text-sm text-gray-600">Lun - Vie: 7:00 am - 5:00 pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORMULARIO + MAPA ===== -->
+  <section class="py-16 bg-sersig-light-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+        <!-- Formulario -->
+        <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-lg border border-gray-100" data-aos="fade-right">
+          <div class="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+            <div class="w-12 h-12 bg-sersig-blue rounded-xl flex items-center justify-center">
+              <i class="fas fa-paper-plane text-white text-lg"></i>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-2xl text-gray-900">Escríbanos</h2>
+              <p class="text-gray-500 text-sm mt-1">Le responderemos a la brevedad</p>
+            </div>
+          </div>
+
+          <form id="contact-form" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Nombre completo</label>
+                <input type="text" id="cf-nombre" required placeholder="Su nombre" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors" />
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Empresa <span class="text-gray-400 font-normal">(opcional)</span></label>
+                <input type="text" id="cf-empresa" placeholder="Nombre de su empresa" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Teléfono</label>
+                <input type="tel" id="cf-telefono" required placeholder="Ej: 300 000 0000" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors" />
+              </div>
+              <div>
+                <label class="block text-gray-700 text-sm font-semibold mb-2">Correo electrónico</label>
+                <input type="email" id="cf-correo" placeholder="correo@empresa.com" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">Servicio de interés</label>
+              <select id="cf-servicio" class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors bg-white cursor-pointer">
+                <option value="">-- Selecciona un servicio --</option>
+                <option value="Recarga de Extintores">Recarga de Extintores</option>
+                <option value="Mantenimiento de Extintores">Mantenimiento de Extintores</option>
+                <option value="Venta de Extintores">Venta de Extintores</option>
+                <option value="Inspección y Diagnóstico">Inspección y Diagnóstico</option>
+                <option value="Equipos Contra Incendio">Equipos Contra Incendio</option>
+                <option value="Señalización de Seguridad">Señalización de Seguridad</option>
+                <option value="Elementos de Protección Personal (EPP)">Elementos de Protección Personal (EPP)</option>
+                <option value="Botiquines de Primeros Auxilios">Botiquines de Primeros Auxilios</option>
+                <option value="Capacitaciones Empresariales">Capacitaciones Empresariales</option>
+                <option value="Asesoría SG-SST">Asesoría, Diseño e Implementación SG-SST</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-700 text-sm font-semibold mb-2">Mensaje</label>
+              <textarea id="cf-mensaje" rows="4" placeholder="Cuéntenos qué necesita..." class="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-sersig-blue focus:ring-1 focus:ring-sersig-blue transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-sersig-blue hover:bg-blue-800 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center justify-center gap-2">
+              <i class="fab fa-whatsapp text-lg"></i> Enviar mensaje por WhatsApp
+            </button>
+            <p class="text-xs text-gray-400 text-center">Al enviar, abriremos WhatsApp con su mensaje listo para confirmar el envío.</p>
+          </form>
+        </div>
+
+        <!-- Mapa + info -->
+        <div data-aos="fade-left">
+          <div class="rounded-3xl overflow-hidden shadow-lg border border-gray-100 h-[360px] sm:h-[420px]">
+            <iframe
+              src="https://www.google.com/maps?q=Barranquilla,Colombia&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de Sersig del Caribe SAS en Barranquilla">
+            </iframe>
+          </div>
+
+          <div class="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 mt-6">
+            <h3 class="font-display font-bold text-xl text-gray-900 mb-5 flex items-center gap-3">
+              <span class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-sersig-blue"><i class="fas fa-map-marker-alt"></i></span>
+              Encuéntrenos en Barranquilla
+            </h3>
+            <ul class="space-y-4 text-sm text-gray-600">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-location-dot text-sersig-blue mt-1"></i>
+                <span>Barranquilla, Atlántico, Colombia</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-phone text-sersig-blue mt-1"></i>
+                <span>+57 311 534 4811</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-envelope text-sersig-blue mt-1"></i>
+                <span>contacto@sersig.com</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-clock text-sersig-blue mt-1"></i>
+                <span>Lunes a Viernes: 7:00 am - 5:00 pm</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/573115344811" target="_blank" rel="noopener" class="mt-6 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fab fa-whatsapp text-lg"></i> Chatear ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIOS (recycled) ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <p class="text-sersig-blue font-bold tracking-widest text-sm uppercase mb-2">TESTIMONIOS</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-gray-900 inline-block relative pb-4">
+          Lo que dicen nuestros clientes
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-sersig-blue rounded-full"></span>
+        </h2>
+      </div>
+
+      <div class="relative" data-aos="fade-up" data-aos-delay="200">
+        <div id="testimonial-carousel" class="overflow-hidden">
+          <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+              <div class="bg-sersig-light-bg p-8 rounded-xl shadow-sm border border-gray-100 h-full flex flex-col">
+                <div class="flex items-center gap-1 text-yellow-400 mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-6 flex-grow">"Excelente servicio de recarga de extintores. Muy puntuales y profesionales. Los equipos quedaron como nuevos y con toda la certificación que necesitábamos para la auditoría."</p>
+                <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-sersig-blue flex items-center justify-center text-white font-bold">M</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-sm">María Fernanda López</p>
+                    <p class="text-xs text-gray-500">Gerente General, Hotel Caribeño</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+              <div class="bg-sersig-light-bg p-8 rounded-xl shadow-sm border border-gray-100 h-full flex flex-col">
+                <div class="flex items-center gap-1 text-yellow-400 mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-6 flex-grow">"Las capacitaciones de SERSIG son de primera. Nuestro personal aprendió a usar los extintores correctamente y ahora se sienten más seguros. 100% recomendados."</p>
+                <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-sersig-blue flex items-center justify-center text-white font-bold">C</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-sm">Carlos Mendoza</p>
+                    <p class="text-xs text-gray-500">Jefe de Seguridad, Industrias Unidas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+              <div class="bg-sersig-light-bg p-8 rounded-xl shadow-sm border border-gray-100 h-full flex flex-col">
+                <div class="flex items-center gap-1 text-yellow-400 mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text-gray-600 italic mb-6 flex-grow">"Rápidos y eficientes. Necesitábamos equipos de seguridad para nuestra nueva bodega y en SERSIG nos asesoraron con lo que realmente requeríamos según la norma. Muy agradecidos."</p>
+                <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-sersig-blue flex items-center justify-center text-white font-bold">A</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-sm">Andrea Ramírez</p>
+                    <p class="text-xs text-gray-500">Administradora, Logística Express</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+              <div class="bg-sersig-light-bg p-8 rounded-xl shadow-sm border border-gray-100 h-full flex flex-col">
+                <div class="flex items-center gap-1 text-yellow-400 mb-4">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 italic mb-6 flex-grow">"Llevamos 3 años trabajando con ellos para el mantenimiento de nuestros extintores en todo el centro comercial. Servicio impecable y siempre disponibles para cualquier emergencia."</p>
+                <div class="flex items-center gap-3 border-t border-gray-200 pt-4">
+                  <div class="w-10 h-10 rounded-full bg-sersig-blue flex items-center justify-center text-white font-bold">J</div>
+                  <div>
+                    <p class="font-semibold text-gray-900 text-sm">Jorge Eliecer Suárez</p>
+                    <p class="text-xs text-gray-500">Director de Operaciones, CC Plaza Mayor</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="prev-btn" class="absolute top-1/2 -translate-y-1/2 left-0 -ml-4 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-sersig-blue hover:bg-sersig-blue hover:text-white transition-colors z-10">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next-btn" class="absolute top-1/2 -translate-y-1/2 right-0 -mr-4 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center text-sersig-blue hover:bg-sersig-blue hover:text-white transition-colors z-10">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL (recycled) ===== -->
+  <section class="py-16 bg-sersig-light-bg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-bold text-3xl text-gray-900 mb-6">¿Prefiere hablar directamente con nosotros?</h2>
+      <p class="text-gray-600 text-lg mb-8">Escríbanos por WhatsApp y le responderemos en minutos, o consulte nuestra calculadora de extintores para una recomendación inmediata.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/573115344811" target="_blank" rel="noopener" class="bg-sersig-blue hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-blue-900/20 flex items-center gap-2">
+          <i class="fab fa-whatsapp text-xl"></i> Escríbenos por WhatsApp
+        </a>
+        <a href="index.html#calculadora" class="bg-white hover:bg-gray-50 text-sersig-blue border-2 border-gray-200 font-bold py-4 px-8 rounded-xl transition-all shadow-sm flex items-center gap-2">
+          <i class="fas fa-calculator"></i> Usar la Calculadora
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- ===== FOOTER ===== -->
+<footer class="bg-sersig-dark-blue text-white pt-16 pb-8 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <!-- Brand & Desc -->
+      <div class="flex flex-col">
+        <a class="flex items-center gap-3 mb-6 bg-white p-2 rounded-lg w-max" href="index.html">
+          <img alt="SERSIG Logo" class="w-16 h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCMcEBQfrZKbPdQTp7BlEnZ1v-v7WYw6g5_EJvIVUkjJmBuFCyk74axp6Ra7b3jCTNqgT-nu-P_UXU0Ae2n6yl89NKcqJ4ZQUlQH5Z_enHIvCc1NFS1WYVYPxxnAwdbJ_0xEBwMNaQCQNdy5RtTo2L4UDVhusLgrgixTAj0KsVNSGjZQDdLXgUnSGMBkjONylRLG8SgFk3iptpfGL1P000aNAan0nUeVP2eZlsv1CdbdNRt98nqAVn_HQbgnpnavbtPwydf3JPOTzW">
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed">
+          Expertos en seguridad industrial, recarga de extintores y capacitaciones. Protegemos lo que más valoras con calidad y cumplimiento normativo.
+        </p>
+      </div>
+      <!-- Links -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Enlaces Rápidos</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a class="hover:text-white transition-colors" href="about.html">Nosotros</a></li>
+          <li><a class="hover:text-white transition-colors" href="servicios.html">Servicios</a></li>
+          <li><a class="hover:text-white transition-colors" href="servicios.html#capacitaciones">Capacitaciones</a></li>
+          <li><a class="hover:text-white transition-colors" href="index.html#calculadora">Calculadora</a></li>
+          <li><a class="hover:text-white transition-colors" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Legal</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="font-display font-bold text-lg mb-6">Contacto</h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">location_on</span>
+            <span>Barranquilla, Colombia</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">phone</span>
+            <span>+57 311 534 4811</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-sersig-blue text-lg">mail</span>
+            <span>contacto@sersig.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-gray-500">
+        © 2024 SERSIG DEL CARIBE SAS. Todos los derechos reservados.
+      </p>
+      <div class="flex gap-4">
+        <a class="text-gray-500 hover:text-white transition-colors" href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="text-gray-500 hover:text-white transition-colors" href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ===== END FOOTER ===== -->
+
+<!-- ===== FLOATING CALCULATOR BUTTON ===== -->
+<a href="index.html#calculadora" class="fab-calc group flex items-center gap-3 bg-sersig-blue hover:bg-blue-800 text-white pl-3.5 pr-5 py-3.5 rounded-full shadow-2xl shadow-blue-900/40 transition-all duration-300 hover:-translate-y-1">
+  <span class="fab-pulse flex items-center justify-center w-10 h-10 rounded-full bg-white/15 flex-shrink-0">
+    <i class="fas fa-calculator text-lg"></i>
+  </span>
+  <span class="hidden sm:flex flex-col leading-tight text-left">
+    <span class="font-display font-bold text-sm">Calculadora</span>
+    <span class="text-[11px] text-blue-200 font-medium">de Extintores</span>
+  </span>
+</a>
+
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobilePanel = document.getElementById('mobile-menu-panel');
+  if (mobileBtn && mobilePanel) {
+    mobileBtn.addEventListener('click', function() {
+      mobilePanel.classList.toggle('open');
+      const icon = mobileBtn.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+  }
+
+  // Mobile accordion (Nosotros / Servicios / Capacitaciones)
+  document.querySelectorAll('.mobile-accordion-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const content = btn.nextElementSibling;
+      const chevron = btn.querySelector('.mobile-chevron');
+      const isOpen = content.classList.contains('open');
+      document.querySelectorAll('.mobile-accordion-content').forEach(function(c) { c.classList.remove('open'); });
+      document.querySelectorAll('.mobile-chevron').forEach(function(c) { c.classList.remove('rotated'); });
+      if (!isOpen) {
+        content.classList.add('open');
+        chevron.classList.add('rotated');
+      }
+    });
+  });
+
+  // Formulario de contacto -> WhatsApp (no hay backend/PHP disponible)
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('cf-nombre').value.trim();
+      const empresa = document.getElementById('cf-empresa').value.trim();
+      const telefono = document.getElementById('cf-telefono').value.trim();
+      const correo = document.getElementById('cf-correo').value.trim();
+      const servicio = document.getElementById('cf-servicio').value;
+      const mensaje = document.getElementById('cf-mensaje').value.trim();
+
+      if (!nombre || !telefono) {
+        alert('Por favor completa al menos tu nombre y teléfono.');
+        return;
+      }
+
+      let texto = `Hola, mi nombre es ${nombre}.`;
+      if (empresa) texto += ` Escribo en representación de ${empresa}.`;
+      texto += ` Mi teléfono de contacto es ${telefono}.`;
+      if (correo) texto += ` Mi correo es ${correo}.`;
+      if (servicio) texto += ` Estoy interesado(a) en: ${servicio}.`;
+      if (mensaje) texto += ` Mensaje: ${mensaje}`;
+
+      const url = 'https://wa.me/573115344811?text=' + encodeURIComponent(texto);
+      window.open(url, '_blank');
+    });
+  }
+
+  // Testimonials Carousel (mismo patrón infinito del home)
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('testimonial-track');
+    if (!track) return;
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const slides = track.children;
+    const totalSlides = slides.length;
+    let slidesToShow = 3;
+    let currentIndex = totalSlides;
+    let slideWidth = 0;
+    let isTransitioning = false;
+
+    function setupInfiniteCarousel() {
+      for (let i = 0; i < slidesToShow; i++) {
+        track.appendChild(slides[i].cloneNode(true));
+      }
+      for (let i = totalSlides - 1; i >= totalSlides - slidesToShow; i--) {
+        track.insertBefore(slides[i].cloneNode(true), track.firstChild);
+      }
+      updateSlideWidth();
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function updateSlideWidth() {
+      if (track.children.length > 0) {
+        slideWidth = track.children[0].getBoundingClientRect().width;
+      }
+    }
+
+    function updateSlidesToShow() {
+      if (window.innerWidth < 768) { slidesToShow = 1; }
+      else if (window.innerWidth < 1024) { slidesToShow = 2; }
+      else { slidesToShow = 3; }
+      resetCarousel();
+    }
+
+    function resetCarousel() {
+      const allSlides = track.querySelectorAll('.flex-shrink-0');
+      const originalSlides = [];
+      for (let i = slidesToShow; i < slidesToShow + totalSlides; i++) {
+        if (allSlides[i]) originalSlides.push(allSlides[i].cloneNode(true));
+      }
+      track.innerHTML = '';
+      originalSlides.forEach(slide => track.appendChild(slide));
+      setupInfiniteCarousel();
+      currentIndex = slidesToShow;
+      updateSlideWidth();
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function moveCarousel(instant = false) {
+      track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function handleInfiniteScroll() {
+      const maxIndex = totalSlides + slidesToShow - 1;
+      if (currentIndex > maxIndex) {
+        currentIndex = slidesToShow;
+        moveCarousel(true);
+        setTimeout(() => { track.style.transition = 'transform 0.5s ease-in-out'; }, 50);
+      }
+      if (currentIndex < slidesToShow) {
+        currentIndex = maxIndex - (slidesToShow - 1);
+        moveCarousel(true);
+        setTimeout(() => { track.style.transition = 'transform 0.5s ease-in-out'; }, 50);
+      }
+    }
+
+    track.addEventListener('transitionend', function() {
+      isTransitioning = false;
+      handleInfiniteScroll();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex++;
+      moveCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex--;
+      moveCarousel();
+    });
+
+    let autoplayInterval = setInterval(() => {
+      if (!isTransitioning) {
+        isTransitioning = true;
+        currentIndex++;
+        moveCarousel();
+      }
+    }, 4000);
+
+    const carouselContainer = document.getElementById('testimonial-carousel');
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    carouselContainer.addEventListener('mouseleave', () => {
+      autoplayInterval = setInterval(() => {
+        if (!isTransitioning) {
+          isTransitioning = true;
+          currentIndex++;
+          moveCarousel();
+        }
+      }, 4000);
+    });
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => { updateSlidesToShow(); }, 250);
+    });
+
+    setupInfiniteCarousel();
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    track.offsetHeight;
+    track.style.transition = 'transform 0.5s ease-in-out';
+  });
+</script>
+</body>
+</html>
