@@ -922,7 +922,7 @@
     offset: 100
   });
 
- // --- CALCULADORA FUNCIONAL ---
+ // --- CALCULADORA FUNCIONAL (REESCRITA COMPLETAMENTE) ---
 document.addEventListener('DOMContentLoaded', function() {
 
   const calcBtn = document.getElementById('calc-btn');
@@ -938,7 +938,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const resultExtintores = document.getElementById('result-extintores');
   const resultUbicacion = document.getElementById('result-ubicacion');
 
-  // Función principal de cálculo
   function calcularRecomendacion() {
     // Obtener valores
     const tipo = document.getElementById('calc-tipo').value;
@@ -953,13 +952,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const tieneElectrico = document.getElementById('calc-electrico').checked;
     const tieneQuimicos = document.getElementById('calc-quimicos').checked;
 
-    // Validación básica
-    if (!tipo || area < 10) {
-      alert('Por favor, completa todos los campos correctamente (mínimo 10 m²).');
+    // Validación
+    if (!tipo || area < 5) {
+      alert('Por favor, completa todos los campos correctamente (mínimo 5 m²).');
       return;
     }
 
-    // --- Lógica de cálculo ---
     const riesgoMap = {
       'bajo': { label: 'Bajo', color: 'bg-green-500/20 text-green-400 border border-green-500/30', factor: 1 },
       'medio': { label: 'Medio', color: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30', factor: 1.2 },
@@ -968,100 +966,163 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const riesgoInfo = riesgoMap[riesgoValor] || riesgoMap['medio'];
 
-    // Determinar clases de fuego
-    const clases = [];
-    if (tieneCocina || tipo === 'restaurante' || tipo === 'cocina') clases.push({ clase: 'A', desc: 'Sólidos (madera, papel, tela)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
-    if (tieneInflamable || tipo === 'taller' || tipo === 'bodega' || tipo === 'industria') clases.push({ clase: 'B', desc: 'Líquidos inflamables', color: 'bg-red-500/20 text-red-400 border border-red-500/30' });
-    if (tieneElectrico || tipo === 'oficina' || tipo === 'local') clases.push({ clase: 'C', desc: 'Equipos eléctricos', color: 'bg-blue-500/20 text-blue-400 border border-blue-500/30' });
-    if (tieneQuimicos || tipo === 'industria') clases.push({ clase: 'D', desc: 'Metales o productos químicos', color: 'bg-purple-500/20 text-purple-400 border border-purple-500/30' });
+    // ============================================
+    // NUEVA LÓGICA: CALCULAR EXTINTORES POR ÁREA
+    // ============================================
     
-    // Si no hay clases, agregar por defecto según tipo
-    if (clases.length === 0) {
-      if (tipo === 'oficina') clases.push({ clase: 'A', desc: 'Sólidos (papel, madera)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
-      else if (tipo === 'local' || tipo === 'conjunto') clases.push({ clase: 'A', desc: 'Sólidos (madera, papel)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
-      else clases.push({ clase: 'A', desc: 'Sólidos (madera, papel, tela)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
-    }
-
-    // --- CALCULAR TOTAL DE EXTINTORES ---
-    // NFPA recomienda: 1 extintor cada 200m² para riesgo bajo, 150m² para medio, 100m² para alto
+    // 1. Calcular base por área (NFPA 10)
+    // Riesgo bajo: 1 extintor cada 200m²
+    // Riesgo medio: 1 extintor cada 150m²  
+    // Riesgo alto: 1 extintor cada 100m²
     const areaPorExtintor = riesgoValor === 'bajo' ? 200 : (riesgoValor === 'medio' ? 150 : 100);
     let totalExtintores = Math.max(1, Math.ceil(area / areaPorExtintor));
     
-    // Ajustar por zonas (mínimo 1 por zona)
-    totalExtintores = Math.max(totalExtintores, zonas);
-
-    // Ajustar por pisos (mínimo 1 por piso)
-    totalExtintores = Math.max(totalExtintores, pisos);
-
-    // --- DISTRIBUIR EXTINTORES POR TIPO ---
-    // Lista de tipos de extintores necesarios según riesgos
-    const tiposNecesarios = [];
+    // 2. Ajustar por zonas: una zona = un área de riesgo
+    // Si hay muchas zonas, cada zona necesita al menos 1 extintor
+    // PERO limitado a un máximo razonable
+    const extintoresPorZona = Math.max(1, Math.ceil(totalExtintores / zonas));
+    totalExtintores = Math.max(totalExtintores, Math.min(zonas, 3));
     
-    // Siempre se necesita ABC (multipropósito)
-    tiposNecesarios.push({ tipo: 'ABC - Polvo Químico Seco', capacidad: '20 lbs', icon: 'fa-fire-extinguisher', prioridad: 1 });
+    // 3. Ajustar por pisos: cada piso necesita al menos 1 extintor
+    // PERO limitado a un máximo razonable
+    totalExtintores = Math.max(totalExtintores, Math.min(pisos, 3));
     
-    // Si hay riesgo eléctrico, agregar CO₂
-    if (tieneElectrico || tipo === 'oficina') {
-      tiposNecesarios.push({ tipo: 'CO₂ - Dióxido de Carbono', capacidad: '10 lbs', icon: 'fa-wind', prioridad: 2 });
+    // 4. Límite superior: máximo 1 extintor cada 50m² (para evitar excesos)
+    const maxExtintores = Math.max(1, Math.ceil(area / 50));
+    totalExtintores = Math.min(totalExtintores, maxExtintores);
+    
+    // 5. Para áreas muy pequeñas (< 50m²), máximo 2 extintores
+    if (area < 50) {
+      totalExtintores = Math.min(totalExtintores, 2);
     }
     
-    // Si hay cocina, agregar Clase K
+    // 6. Para conjuntos residenciales o locales, máximo 1 por zona
+    if (tipo === 'conjunto' || tipo === 'local') {
+      totalExtintores = Math.min(totalExtintores, zonas);
+    }
+    
+    // 7. Si hay cocina, sumar 1 extintor extra de Clase K
+    let extintorK = 0;
     if (tieneCocina || tipo === 'restaurante' || tipo === 'cocina') {
-      tiposNecesarios.push({ tipo: 'Clase K - Aceites y Grasas', capacidad: '6L', icon: 'fa-utensils', prioridad: 3 });
-    }
-    
-    // Si hay inflamables, agregar más ABC o CO₂
-    if (tieneInflamable) {
-      // Ya tenemos ABC, pero podemos aumentar su cantidad
+      extintorK = 1;
+      totalExtintores = Math.min(totalExtintores + 1, 4); // Máximo 4 total
     }
 
-    // Distribuir el total entre los tipos necesarios
+    // ============================================
+    // DETERMINAR CLASES DE FUEGO
+    // ============================================
+    const clases = [];
+    // Siempre hay riesgo A (sólidos)
+    clases.push({ clase: 'A', desc: 'Sólidos (madera, papel, tela)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
+    
+    if (tieneInflamable || tipo === 'taller' || tipo === 'bodega' || tipo === 'industria') {
+      clases.push({ clase: 'B', desc: 'Líquidos inflamables', color: 'bg-red-500/20 text-red-400 border border-red-500/30' });
+    }
+    
+    if (tieneElectrico || tipo === 'oficina') {
+      clases.push({ clase: 'C', desc: 'Equipos eléctricos', color: 'bg-blue-500/20 text-blue-400 border border-blue-500/30' });
+    }
+    
+    if (tieneQuimicos || tipo === 'industria') {
+      clases.push({ clase: 'D', desc: 'Metales o productos químicos', color: 'bg-purple-500/20 text-purple-400 border border-purple-500/30' });
+    }
+
+    // ============================================
+    // DISTRIBUIR EXTINTORES POR TIPO (NUEVA LÓGICA)
+    // ============================================
     const distribucion = [];
     let restante = totalExtintores;
     
-    // Ordenar por prioridad (1 = más importante)
-    tiposNecesarios.sort((a, b) => a.prioridad - b.prioridad);
+    // 1. Siempre hay extintor ABC (multipropósito)
+    const abc = {
+      tipo: 'ABC - Polvo Químico Seco',
+      capacidad: '20 lbs',
+      icon: 'fa-fire-extinguisher',
+      desc: 'Multipropósito para fuegos clase A, B y C'
+    };
     
-    // Si solo hay un tipo, todos los extintores son de ese tipo
-    if (tiposNecesarios.length === 1) {
-      distribucion.push({
-        ...tiposNecesarios[0],
-        cantidad: totalExtintores,
-        desc: tiposNecesarios[0].tipo.includes('ABC') ? 'Multipropósito para fuegos clase A, B y C' :
-               tiposNecesarios[0].tipo.includes('CO₂') ? 'Para equipos eléctricos y líquidos inflamables' :
-               'Especial para cocinas y grasas'
-      });
+    // 2. Si hay riesgo eléctrico, agregar CO₂ (máximo 1)
+    const tieneCO2 = tieneElectrico || tipo === 'oficina';
+    
+    // 3. Si hay cocina, agregar Clase K (máximo 1)
+    const tieneK = tieneCocina || tipo === 'restaurante' || tipo === 'cocina';
+    
+    // Calcular distribución
+    if (totalExtintores === 1) {
+      // Un solo extintor: siempre ABC
+      distribucion.push({ ...abc, cantidad: 1 });
     } else {
-      // Distribuir proporcionalmente
-      const totalPrioridad = tiposNecesarios.reduce((sum, t) => sum + (1 / t.prioridad), 0);
-      
-      tiposNecesarios.forEach((t, index) => {
-        let cantidad;
-        if (index === tiposNecesarios.length - 1) {
-          // El último se lleva lo que quede
-          cantidad = restante;
+      // Caso: 2 extintores
+      if (totalExtintores === 2) {
+        distribucion.push({ ...abc, cantidad: 1 });
+        if (tieneCO2) {
+          distribucion.push({ 
+            tipo: 'CO₂ - Dióxido de Carbono',
+            capacidad: '10 lbs',
+            icon: 'fa-wind',
+            desc: 'Para equipos eléctricos y líquidos inflamables',
+            cantidad: 1
+          });
+        } else if (tieneK) {
+          distribucion.push({ 
+            tipo: 'Clase K - Aceites y Grasas',
+            capacidad: '6L',
+            icon: 'fa-utensils',
+            desc: 'Especial para cocinas y grasas vegetales/animales',
+            cantidad: 1
+          });
         } else {
-          // Calcular proporcionalmente según prioridad
-          const proporcion = (1 / t.prioridad) / totalPrioridad;
-          cantidad = Math.max(1, Math.round(totalExtintores * proporcion * 0.7));
-          restante -= cantidad;
+          distribucion.push({ ...abc, cantidad: 2 });
         }
-        // Asegurar mínimo 1 si hay extintores totales
-        cantidad = Math.max(1, cantidad);
+      } else {
+        // 3+ extintores: distribución proporcional
+        let abcCount = Math.max(1, Math.ceil(totalExtintores * 0.5));
+        let co2Count = 0;
+        let kCount = 0;
         
-        const desc = t.tipo.includes('ABC') ? 'Multipropósito para fuegos clase A, B y C' :
-                    t.tipo.includes('CO₂') ? 'Para equipos eléctricos y líquidos inflamables' :
-                    'Especial para cocinas y grasas vegetales/animales';
+        if (tieneCO2) {
+          co2Count = Math.min(1, Math.ceil(totalExtintores * 0.3));
+        }
+        if (tieneK) {
+          kCount = Math.min(1, Math.ceil(totalExtintores * 0.3));
+        }
         
-        distribucion.push({
-          ...t,
-          cantidad: cantidad,
-          desc: desc
-        });
-      });
+        // Ajustar para que sume exactamente totalExtintores
+        let suma = abcCount + co2Count + kCount;
+        if (suma > totalExtintores) {
+          abcCount = totalExtintores - co2Count - kCount;
+        } else if (suma < totalExtintores) {
+          abcCount += (totalExtintores - suma);
+        }
+        
+        // Asegurar mínimo 1
+        abcCount = Math.max(1, abcCount);
+        
+        distribucion.push({ ...abc, cantidad: abcCount });
+        if (co2Count > 0) {
+          distribucion.push({ 
+            tipo: 'CO₂ - Dióxido de Carbono',
+            capacidad: '10 lbs',
+            icon: 'fa-wind',
+            desc: 'Para equipos eléctricos y líquidos inflamables',
+            cantidad: co2Count
+          });
+        }
+        if (kCount > 0) {
+          distribucion.push({ 
+            tipo: 'Clase K - Aceites y Grasas',
+            capacidad: '6L',
+            icon: 'fa-utensils',
+            desc: 'Especial para cocinas y grasas vegetales/animales',
+            cantidad: kCount
+          });
+        }
+      }
     }
 
-    // Riesgos detectados
+    // ============================================
+    // RIESGOS DETECTADOS
+    // ============================================
     const riesgos = [];
     if (tieneCocina) riesgos.push({ texto: 'Cocina / Fuente de calor', color: 'bg-orange-500/20 text-orange-400 border border-orange-500/30' });
     if (tieneInflamable) riesgos.push({ texto: 'Líquidos inflamables', color: 'bg-red-500/20 text-red-400 border border-red-500/30' });
@@ -1074,38 +1135,41 @@ document.addEventListener('DOMContentLoaded', function() {
       riesgos.push({ texto: 'Riesgo general de incendio', color: 'bg-gray-500/20 text-gray-400 border border-gray-500/30' });
     }
 
-    // Ubicación sugerida
+    // ============================================
+    // UBICACIÓN SUGERIDA (CORREGIDA)
+    // ============================================
     const ubicacion = [];
-    for (let i = 1; i <= Math.min(pisos, 5); i++) {
-      const extPorPiso = Math.max(1, Math.ceil(totalExtintores / pisos));
-      const distancia = riesgoValor === 'bajo' ? '20' : (riesgoValor === 'medio' ? '15' : '10');
+    const pisosReales = Math.min(pisos, 3);
+    const extPorPiso = Math.max(1, Math.ceil(totalExtintores / pisosReales));
+    const distancia = riesgoValor === 'bajo' ? '20' : (riesgoValor === 'medio' ? '15' : '10');
+    
+    for (let i = 1; i <= pisosReales; i++) {
       ubicacion.push(`Piso ${i}: ${extPorPiso} extintor(es) estratégicamente ubicados cada ${distancia} metros de recorrido`);
     }
 
-    // Resumen
+    // ============================================
+    // RESUMEN
+    // ============================================
     let resumen = `Para tu ${tipo} de ${area}m² con ${pisos} piso(s) y nivel de riesgo ${riesgoInfo.label.toLowerCase()}, `;
-    resumen += `se recomienda un total de ${totalExtintores} extintores distribuidos en ${zonas} zona(s). `;
-    resumen += `La distribución sugerida es de aproximadamente ${Math.max(1, Math.ceil(totalExtintores / pisos))} extintores por piso.`;
+    resumen += `se recomienda un total de ${totalExtintores} extintor(es). `;
+    resumen += `La distribución sugerida es de aproximadamente ${extPorPiso} extintor(es) por piso.`;
 
-    // --- PINTAR RESULTADOS ---
-    // Badge riesgo
+    // ============================================
+    // PINTAR RESULTADOS
+    // ============================================
     resultRiesgoBadge.textContent = `Nivel ${riesgoInfo.label}`;
     resultRiesgoBadge.className = `text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider ${riesgoInfo.color}`;
 
-    // Resumen
     resultResumen.textContent = resumen;
 
-    // Riesgos
     resultRiesgos.innerHTML = riesgos.map(r => 
       `<span class="px-3 py-1.5 rounded-lg text-xs font-semibold ${r.color}">${r.texto}</span>`
     ).join('');
 
-    // Clases de fuego
     resultClases.innerHTML = clases.map(c =>
       `<span class="px-4 py-2 rounded-xl text-sm font-bold ${c.color}">Clase ${c.clase} - ${c.desc}</span>`
     ).join('');
 
-    // Extintores - AHORA CON DISTRIBUCIÓN CORRECTA
     resultExtintores.innerHTML = distribucion.map(e =>
       `<div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/10">
         <div class="w-12 h-12 bg-sersig-blue/10 rounded-xl flex items-center justify-center text-sersig-blue text-xl flex-shrink-0">
@@ -1125,7 +1189,6 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>`
     ).join('');
 
-    // Ubicación
     resultUbicacion.innerHTML = ubicacion.map(u =>
       `<div class="flex items-center gap-3 text-white/70 text-sm bg-white/5 rounded-xl p-3 border border-white/5">
         <i class="fas fa-map-pin text-sersig-blue"></i>
@@ -1133,15 +1196,13 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>`
     ).join('');
 
-    // Mostrar resultado
     placeholder.classList.add('hidden');
     resultContainer.classList.remove('hidden');
   }
 
-  // Evento click del botón Calcular
+  // Eventos
   calcBtn.addEventListener('click', calcularRecomendacion);
-
-  // Evento click del botón WhatsApp
+  
   waBtn.addEventListener('click', function() {
     const tipo = document.getElementById('calc-tipo').value;
     const area = document.getElementById('calc-area').value || '0';
@@ -1157,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.open(`https://wa.me/573115344811?text=${mensaje}`, '_blank');
   });
 
-  // Permitir calcular con Enter en los campos
+  // Enter para calcular
   document.querySelectorAll('#calculadora input, #calculadora select').forEach(el => {
     el.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
