@@ -24,7 +24,11 @@
             'sersig-blue': '#1e3a8a',
             'sersig-light-bg': '#f8fafc',
             'sersig-gray': '#475569',
-            'sersig-dark-blue': '#0f172a'
+            'sersig-dark-blue': '#0f172a',
+            'flame': '#e63946',
+            'flame-dark': '#c62828',
+            'ink': '#0b1120',
+            'ink-soft': '#111927',
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
@@ -48,13 +52,26 @@
     /* Calculator Custom Utilities */
     @layer utilities {
       .calc-input {
-        @apply w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300;
+        @apply w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-flame focus:ring-1 focus:ring-flame transition-colors duration-300;
       }
       .calc-label {
         @apply block text-white/80 text-sm font-semibold mb-2;
       }
       select.calc-input option {
-        @apply bg-sersig-dark-blue text-white;
+        @apply bg-ink-soft text-white;
+      }
+      .risk-btn {
+        @apply flex flex-col items-center justify-center p-4 rounded-2xl border border-white/10 bg-white/5 text-white/60 cursor-pointer transition-all duration-300 hover:border-white/20 hover:bg-white/10;
+      }
+      .risk-low.checked { @apply bg-green-500/20 border-green-500/50 text-green-400; }
+      .risk-medium.checked { @apply bg-yellow-500/20 border-yellow-500/50 text-yellow-400; }
+      .risk-high.checked { @apply bg-red-500/20 border-red-500/50 text-red-400; }
+      .check-box { @apply accent-flame w-4 h-4 rounded; }
+      .section-tag-dark {
+        @apply inline-block bg-flame/10 border border-flame/20 text-flame text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full;
+      }
+      .section-title {
+        @apply font-display font-black text-3xl sm:text-4xl lg:text-5xl leading-tight;
       }
     }
 
@@ -111,6 +128,16 @@
       0% { transform: scale(1); opacity: 0.55; }
       100% { transform: scale(1.9); opacity: 0; }
     }
+
+    /* Animaciones blob */
+    @keyframes blob {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
   </style>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-white">
@@ -282,7 +309,6 @@
     <div class="hidden lg:block absolute top-0 right-0 w-[55%] h-full z-0 clip-path-slant">
       <img alt="Trabajador de seguridad industrial inspeccionando extintor" class="w-full h-full object-cover object-center mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRm4UqeFrV6btwtAuxYdcJvQlC1xQle14YKO-Cj-oJw6vGk029_ksJlu6uvo7mS-vTvqIeX3YH55Iq22nxvT1slfnQxBBDx3BLwsPzhYY6UURAhOthRYBK0Ja5tLoU0OF6iqJgPG2KlXRlXssvJVgSSqmueF2qMT4eFGmifn93y3_i2qAeR6_j70kfq7qONBZM_lW-_JPTPvCH2PlE6MTdfl5qPIpgHwKL_LazWYnlg5c6YCJCcAGTxrM7cbeVYAgBbnoJxVfdAAt">
       <div class="absolute inset-0 bg-blue-900/40 mix-blend-overlay"></div>
-      <!-- Overlay Logo ELIMINADO -->
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-0">
@@ -553,229 +579,216 @@
   </section>
   <!-- END: Testimonials Carousel -->
 
-  <!-- BEGIN: Calculadora Section (DISEÑO MÁS PROFESIONAL) -->
-  <section id="calculadora" class="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-sersig-dark-blue to-blue-950 relative overflow-hidden">
-    <!-- Partículas decorativas de fondo -->
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-      <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-    </div>
-    
-    <!-- Grid de fondo -->
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)"/%3E%3C/svg%3E')] opacity-40"></div>
+  <!-- BEGIN: Calculadora Section - MEJORADA Y FUNCIONAL -->
+  <section id="calculadora" class="py-24 lg:py-32 bg-ink relative overflow-hidden">
+    <div class="section-blob absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-flame/5 rounded-full blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <!-- Header mejorado -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-1.5 mb-4">
-          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          <p class="text-blue-300 font-semibold tracking-wider text-xs uppercase">Herramienta gratuita y única en el Caribe</p>
-        </div>
-        <h2 class="font-display font-bold text-4xl sm:text-5xl text-white mb-4">
-          Calculadora <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Inteligente</span> de Extintores
+      <!-- Header -->
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="section-tag-dark">Herramienta gratuita y única en el Caribe</span>
+        <h2 class="section-title text-white mt-3">
+          Calculadora <span class="text-flame">Inteligente</span><br/>de Extintores
         </h2>
-        <p class="text-blue-200/70 max-w-2xl mx-auto text-base leading-relaxed">
+        <p class="text-white/50 max-w-2xl mx-auto mt-4">
           Ingresa los datos de tu establecimiento y obtendrás al instante una recomendación técnica según la NFPA y NTC 2885.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <!-- FORM con diseño mejorado -->
-        <div class="relative group" data-aos="fade-right">
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-          <div class="relative bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
-            <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
-                <i class="fas fa-calculator text-white text-lg"></i>
-              </div>
-              <div>
-                <h3 class="text-white font-display font-bold text-xl">Datos del Establecimiento</h3>
-                <p class="text-blue-300/60 text-xs mt-1">Complete todos los campos para un cálculo preciso</p>
-              </div>
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+
+        <!-- FORM -->
+        <div class="bg-ink-soft border border-white/10 rounded-3xl p-8" data-aos="fade-right">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 bg-flame rounded-xl flex items-center justify-center">
+              <i class="fas fa-calculator text-white"></i>
             </div>
-
-            <div class="space-y-5">
-              <!-- Tipo -->
-              <div>
-                <label class="calc-label flex items-center gap-2">
-                  <i class="fas fa-building text-blue-400 text-xs"></i>
-                  Tipo de establecimiento
-                </label>
-                <select id="calc-tipo" class="calc-input cursor-pointer bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl">
-                  <option value="">-- Selecciona --</option>
-                  <option value="restaurante">🍽️ Restaurante</option>
-                  <option value="oficina">🏢 Oficina</option>
-                  <option value="local">🏪 Local comercial</option>
-                  <option value="bodega">🏭 Bodega / Almacén</option>
-                  <option value="taller">🔧 Taller mecánico</option>
-                  <option value="conjunto">🏘️ Conjunto residencial</option>
-                  <option value="cocina">👨‍🍳 Cocina industrial</option>
-                  <option value="drogueria">💊 Droguería / Farmacia</option>
-                  <option value="ferreteria">🔩 Ferretería</option>
-                  <option value="industria">⚙️ Industria / Planta</option>
-                </select>
-              </div>
-
-              <!-- Área y pisos -->
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="calc-label flex items-center gap-2">
-                    <i class="fas fa-vector-square text-blue-400 text-xs"></i>
-                    Metros cuadrados (m²)
-                  </label>
-                  <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
-                </div>
-                <div>
-                  <label class="calc-label flex items-center gap-2">
-                    <i class="fas fa-layer-group text-blue-400 text-xs"></i>
-                    Cantidad de pisos
-                  </label>
-                  <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
-                </div>
-              </div>
-
-              <!-- Áreas -->
-              <div>
-                <label class="calc-label flex items-center gap-2">
-                  <i class="fas fa-map-pin text-blue-400 text-xs"></i>
-                  Cantidad de áreas / zonas separadas
-                </label>
-                <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input bg-white/[0.03] border-white/[0.08] hover:border-white/20 focus:border-blue-400 focus:ring-blue-400/30 rounded-2xl" />
-              </div>
-
-              <!-- Nivel de riesgo -->
-              <div>
-                <label class="calc-label flex items-center gap-2 mb-3">
-                  <i class="fas fa-exclamation-triangle text-blue-400 text-xs"></i>
-                  Nivel de riesgo estimado
-                </label>
-                <div class="grid grid-cols-3 gap-3">
-                  <label class="cursor-pointer group">
-                    <input type="radio" name="riesgo" value="bajo" class="hidden peer" />
-                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-green-500/10 peer-checked:border-green-500/50 peer-checked:text-green-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
-                      <i class="fas fa-circle-check text-xl mb-2"></i>
-                      <span class="text-xs font-semibold">Bajo</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer group">
-                    <input type="radio" name="riesgo" value="medio" class="hidden peer" />
-                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-yellow-500/10 peer-checked:border-yellow-500/50 peer-checked:text-yellow-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
-                      <i class="fas fa-triangle-exclamation text-xl mb-2"></i>
-                      <span class="text-xs font-semibold">Medio</span>
-                    </div>
-                  </label>
-                  <label class="cursor-pointer group">
-                    <input type="radio" name="riesgo" value="alto" class="hidden peer" />
-                    <div class="flex flex-col items-center justify-center p-4 rounded-2xl border border-white/[0.08] bg-white/[0.03] text-white/60 peer-checked:bg-red-500/10 peer-checked:border-red-500/50 peer-checked:text-red-400 group-hover:border-white/20 group-hover:bg-white/[0.05] transition-all duration-300">
-                      <i class="fas fa-radiation text-xl mb-2"></i>
-                      <span class="text-xs font-semibold">Alto</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Checkboxes -->
-              <div>
-                <label class="calc-label flex items-center gap-2 mb-3">
-                  <i class="fas fa-list-check text-blue-400 text-xs"></i>
-                  Características especiales
-                </label>
-                <div class="grid grid-cols-2 gap-3">
-                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
-                    <input type="checkbox" id="calc-cocina" class="accent-blue-500 w-4 h-4 rounded" />
-                    <div class="flex items-center gap-2">
-                      <i class="fas fa-fire text-blue-400 text-sm"></i>
-                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Tiene cocina</span>
-                    </div>
-                  </label>
-                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
-                    <input type="checkbox" id="calc-inflamable" class="accent-blue-500 w-4 h-4 rounded" />
-                    <div class="flex items-center gap-2">
-                      <i class="fas fa-gas-pump text-blue-400 text-sm"></i>
-                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Líq. inflamables</span>
-                    </div>
-                  </label>
-                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
-                    <input type="checkbox" id="calc-electrico" class="accent-blue-500 w-4 h-4 rounded" />
-                    <div class="flex items-center gap-2">
-                      <i class="fas fa-bolt text-blue-400 text-sm"></i>
-                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Eq. eléctricos</span>
-                    </div>
-                  </label>
-                  <label class="flex items-center gap-3 bg-white/[0.03] border border-white/[0.08] rounded-2xl p-3.5 cursor-pointer hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-300 group">
-                    <input type="checkbox" id="calc-quimicos" class="accent-blue-500 w-4 h-4 rounded" />
-                    <div class="flex items-center gap-2">
-                      <i class="fas fa-flask text-blue-400 text-sm"></i>
-                      <span class="text-white/70 text-sm group-hover:text-white/90 transition-colors">Almacena químicos</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-
-              <!-- CTA mejorado -->
-              <button id="calc-btn" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-4 rounded-2xl shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-4 group border border-blue-400/20">
-                <i class="fas fa-calculator group-hover:scale-110 transition-transform"></i>
-                Calcular Ahora
-                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESULTS con diseño mejorado -->
-        <div id="calc-result-wrapper" data-aos="fade-left">
-          <!-- Placeholder mejorado -->
-          <div id="calc-placeholder" class="relative group">
-            <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/50 to-cyan-500/50 rounded-3xl blur opacity-30"></div>
-            <div class="relative bg-slate-900/90 border border-dashed border-white/10 rounded-3xl p-12 text-center h-full flex flex-col justify-center items-center backdrop-blur-xl">
-              <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
-                <i class="fas fa-fire-extinguisher text-blue-400/50 text-4xl"></i>
-              </div>
-              <p class="text-blue-200/50 text-base font-medium">Completa el formulario y obtén<br/>tu recomendación técnica al instante</p>
-              <div class="mt-6 flex gap-2">
-                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce"></span>
-                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce animation-delay-200"></span>
-                <span class="w-2 h-2 bg-blue-400/30 rounded-full animate-bounce animation-delay-400"></span>
-              </div>
-            </div>
+            <h3 class="text-white font-display font-700 text-xl">Datos del Establecimiento</h3>
           </div>
 
-          <!-- Result dashboard mejorado -->
-          <div id="calc-result" class="hidden">
-            <div class="relative group mb-6">
-              <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500/50 to-emerald-500/50 rounded-3xl blur opacity-30"></div>
-              <div class="relative bg-slate-900/90 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl">
-                <div class="flex items-center justify-between mb-6">
-                  <h3 class="text-white font-display font-bold text-xl flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                      <i class="fas fa-shield-halved text-white"></i>
-                    </div>
-                    Resultado Técnico
-                  </h3>
-                  <span id="result-riesgo-badge" class="text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border border-blue-500/30">Análisis</span>
-                </div>
-                <div class="bg-white/[0.03] rounded-2xl p-6 border border-white/[0.08]">
-                  <p id="result-resumen" class="text-white/70 text-sm leading-relaxed">
-                    Resultados listos para revisar.
-                  </p>
-                </div>
+          <div class="space-y-5">
+            <!-- Tipo -->
+            <div>
+              <label class="calc-label">Tipo de establecimiento</label>
+              <select id="calc-tipo" class="calc-input">
+                <option value="">-- Selecciona --</option>
+                <option value="restaurante">🍽️ Restaurante</option>
+                <option value="oficina">🏢 Oficina</option>
+                <option value="local">🏪 Local comercial</option>
+                <option value="bodega">🏭 Bodega / Almacén</option>
+                <option value="taller">🔧 Taller mecánico</option>
+                <option value="conjunto">🏘️ Conjunto residencial</option>
+                <option value="cocina">👨‍🍳 Cocina industrial</option>
+                <option value="drogueria">💊 Droguería / Farmacia</option>
+                <option value="ferreteria">🔩 Ferretería</option>
+                <option value="industria">⚙️ Industria / Planta</option>
+              </select>
+            </div>
+
+            <!-- Área y pisos -->
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="calc-label">Metros cuadrados (m²)</label>
+                <input type="number" id="calc-area" min="1" placeholder="Ej: 200" class="calc-input" />
+              </div>
+              <div>
+                <label class="calc-label">Cantidad de pisos</label>
+                <input type="number" id="calc-pisos" min="1" max="50" placeholder="Ej: 2" class="calc-input" />
               </div>
             </div>
-            
-            <button id="calc-wa-btn" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-4 rounded-2xl shadow-xl shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3 text-base group border border-green-400/20">
-              <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
-              Enviar cotización por WhatsApp
-              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+
+            <!-- Áreas -->
+            <div>
+              <label class="calc-label">Cantidad de áreas / zonas separadas</label>
+              <input type="number" id="calc-areas" min="1" placeholder="Ej: 3" class="calc-input" />
+            </div>
+
+            <!-- Nivel de riesgo -->
+            <div>
+              <label class="calc-label">Nivel de riesgo estimado</label>
+              <div class="grid grid-cols-3 gap-3 mt-2">
+                <label class="risk-option cursor-pointer" data-value="bajo">
+                  <input type="radio" name="riesgo" value="bajo" class="hidden peer" />
+                  <div class="risk-btn risk-low peer-checked:bg-green-500/20 peer-checked:border-green-500/50 peer-checked:text-green-400">
+                    <i class="fas fa-circle-check text-lg mb-1"></i>
+                    <span class="text-xs font-600">Bajo</span>
+                  </div>
+                </label>
+                <label class="risk-option cursor-pointer" data-value="medio">
+                  <input type="radio" name="riesgo" value="medio" class="hidden peer" />
+                  <div class="risk-btn risk-medium peer-checked:bg-yellow-500/20 peer-checked:border-yellow-500/50 peer-checked:text-yellow-400">
+                    <i class="fas fa-triangle-exclamation text-lg mb-1"></i>
+                    <span class="text-xs font-600">Medio</span>
+                  </div>
+                </label>
+                <label class="risk-option cursor-pointer" data-value="alto">
+                  <input type="radio" name="riesgo" value="alto" class="hidden peer" />
+                  <div class="risk-btn risk-high peer-checked:bg-red-500/20 peer-checked:border-red-500/50 peer-checked:text-red-400">
+                    <i class="fas fa-radiation text-lg mb-1"></i>
+                    <span class="text-xs font-600">Alto</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div>
+              <label class="calc-label mb-3 block">Características especiales</label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                  <input type="checkbox" id="calc-cocina" class="check-box" />
+                  <div>
+                    <i class="fas fa-fire text-flame mr-2 text-sm"></i>
+                    <span class="text-white/80 text-sm">Tiene cocina</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                  <input type="checkbox" id="calc-inflamable" class="check-box" />
+                  <div>
+                    <i class="fas fa-gas-pump text-flame mr-2 text-sm"></i>
+                    <span class="text-white/80 text-sm">Líquidos inflamables</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                  <input type="checkbox" id="calc-electrico" class="check-box" />
+                  <div>
+                    <i class="fas fa-bolt text-flame mr-2 text-sm"></i>
+                    <span class="text-white/80 text-sm">Equipos eléctricos</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 cursor-pointer hover:border-flame/40 hover:bg-flame/5 transition-colors">
+                  <input type="checkbox" id="calc-quimicos" class="check-box" />
+                  <div>
+                    <i class="fas fa-flask text-flame mr-2 text-sm"></i>
+                    <span class="text-white/80 text-sm">Almacena químicos</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <button id="calc-btn"
+              class="w-full bg-flame hover:bg-flame-dark text-white font-700 py-4 rounded-2xl shadow-xl shadow-flame/30 hover:shadow-flame/50 transition-all duration-300 flex items-center justify-center gap-3 text-base mt-2">
+              <i class="fas fa-calculator"></i>
+              Calcular Ahora
             </button>
           </div>
         </div>
+
+        <!-- RESULTS -->
+        <div id="calc-result-wrapper" data-aos="fade-left">
+
+          <!-- Placeholder -->
+          <div id="calc-placeholder" class="bg-ink-soft border border-dashed border-white/20 rounded-3xl p-12 text-center h-full flex flex-col items-center justify-center">
+            <i class="fas fa-fire-extinguisher text-white/20 text-6xl mb-4"></i>
+            <p class="text-white/30 text-base">Completa el formulario y obtén<br/>tu recomendación técnica al instante</p>
+            <div class="mt-6 flex gap-2">
+              <span class="w-2 h-2 bg-flame/30 rounded-full animate-bounce"></span>
+              <span class="w-2 h-2 bg-flame/30 rounded-full animate-bounce animation-delay-2000"></span>
+              <span class="w-2 h-2 bg-flame/30 rounded-full animate-bounce animation-delay-4000"></span>
+            </div>
+          </div>
+
+          <!-- Result dashboard (hidden by default) -->
+          <div id="calc-result" class="hidden">
+            <!-- Risk summary -->
+            <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-white font-display font-700 text-xl flex items-center gap-2">
+                  <i class="fas fa-shield-halved text-flame"></i> Resultado Técnico
+                </h3>
+                <span id="result-riesgo-badge" class="text-xs font-700 px-4 py-1.5 rounded-full uppercase tracking-wider"></span>
+              </div>
+              <p id="result-resumen" class="text-white/60 text-sm leading-relaxed"></p>
+            </div>
+
+            <!-- Detected risks -->
+            <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+              <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <i class="fas fa-triangle-exclamation text-flame"></i> Riesgos detectados
+              </h4>
+              <div id="result-riesgos" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Fire classes -->
+            <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+              <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <i class="fas fa-fire text-flame"></i> Clases de fuego a controlar
+              </h4>
+              <div id="result-clases" class="flex flex-wrap gap-3"></div>
+            </div>
+
+            <!-- Extinguisher list -->
+            <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-4">
+              <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <i class="fas fa-fire-extinguisher text-flame"></i> Extintores recomendados
+              </h4>
+              <div id="result-extintores" class="space-y-3"></div>
+            </div>
+
+            <!-- Location by floor -->
+            <div class="bg-ink-soft border border-white/10 rounded-3xl p-6 mb-6">
+              <h4 class="text-white font-600 text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <i class="fas fa-map-marker-alt text-flame"></i> Ubicación sugerida por piso
+              </h4>
+              <div id="result-ubicacion" class="space-y-2"></div>
+            </div>
+
+            <!-- WhatsApp CTA -->
+            <button id="calc-wa-btn"
+              class="w-full bg-green-500 hover:bg-green-600 text-white font-700 py-4 rounded-2xl shadow-xl shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 flex items-center justify-center gap-3 text-base">
+              <i class="fab fa-whatsapp text-xl"></i>
+              Enviar cotización por WhatsApp
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
   <!-- END: Calculadora Section -->
 
-  <!-- BEGIN: Value Added (MOVIDA A ÚLTIMA - ¿Por qué elegirnos?) -->
+  <!-- BEGIN: Value Added -->
   <section class="py-16 bg-sersig-light-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" data-aos="fade-up">
@@ -896,11 +909,216 @@
     once: true,
     offset: 100
   });
-  
-  // Scripts básicos visuales para la calculadora (Placeholder a Resultado)
-  document.getElementById('calc-btn').addEventListener('click', function() {
-    document.getElementById('calc-placeholder').classList.add('hidden');
-    document.getElementById('calc-result').classList.remove('hidden');
+
+  // --- CALCULADORA FUNCIONAL ---
+  document.addEventListener('DOMContentLoaded', function() {
+
+    const calcBtn = document.getElementById('calc-btn');
+    const waBtn = document.getElementById('calc-wa-btn');
+    const placeholder = document.getElementById('calc-placeholder');
+    const resultContainer = document.getElementById('calc-result');
+
+    // Elementos de resultado
+    const resultRiesgoBadge = document.getElementById('result-riesgo-badge');
+    const resultResumen = document.getElementById('result-resumen');
+    const resultRiesgos = document.getElementById('result-riesgos');
+    const resultClases = document.getElementById('result-clases');
+    const resultExtintores = document.getElementById('result-extintores');
+    const resultUbicacion = document.getElementById('result-ubicacion');
+
+    // Función principal de cálculo
+    function calcularRecomendacion() {
+      // Obtener valores
+      const tipo = document.getElementById('calc-tipo').value;
+      const area = parseFloat(document.getElementById('calc-area').value) || 0;
+      const pisos = parseInt(document.getElementById('calc-pisos').value) || 1;
+      const zonas = parseInt(document.getElementById('calc-areas').value) || 1;
+      const riesgo = document.querySelector('input[name="riesgo"]:checked');
+      const riesgoValor = riesgo ? riesgo.value : 'medio';
+      
+      const tieneCocina = document.getElementById('calc-cocina').checked;
+      const tieneInflamable = document.getElementById('calc-inflamable').checked;
+      const tieneElectrico = document.getElementById('calc-electrico').checked;
+      const tieneQuimicos = document.getElementById('calc-quimicos').checked;
+
+      // Validación básica
+      if (!tipo || area < 10) {
+        alert('Por favor, completa todos los campos correctamente (mínimo 10 m²).');
+        return;
+      }
+
+      // --- Lógica de cálculo ---
+      const riesgoMap = {
+        'bajo': { label: 'Bajo', color: 'bg-green-500/20 text-green-400 border border-green-500/30' },
+        'medio': { label: 'Medio', color: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' },
+        'alto': { label: 'Alto', color: 'bg-red-500/20 text-red-400 border border-red-500/30' }
+      };
+
+      const riesgoInfo = riesgoMap[riesgoValor] || riesgoMap['medio'];
+
+      // Determinar clases de fuego
+      const clases = [];
+      if (tieneCocina || tipo === 'restaurante' || tipo === 'cocina') clases.push({ clase: 'A', desc: 'Sólidos (madera, papel, tela)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
+      if (tieneInflamable || tipo === 'taller' || tipo === 'bodega' || tipo === 'industria') clases.push({ clase: 'B', desc: 'Líquidos inflamables', color: 'bg-red-500/20 text-red-400 border border-red-500/30' });
+      if (tieneElectrico || tipo === 'oficina' || tipo === 'local') clases.push({ clase: 'C', desc: 'Equipos eléctricos', color: 'bg-blue-500/20 text-blue-400 border border-blue-500/30' });
+      if (tieneQuimicos || tipo === 'industria') clases.push({ clase: 'D', desc: 'Metales o productos químicos', color: 'bg-purple-500/20 text-purple-400 border border-purple-500/30' });
+      
+      // Si no hay clases, agregar por defecto según tipo
+      if (clases.length === 0) {
+        if (tipo === 'oficina') clases.push({ clase: 'A', desc: 'Sólidos (papel, madera)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
+        else if (tipo === 'local' || tipo === 'conjunto') clases.push({ clase: 'A', desc: 'Sólidos (madera, papel)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
+        else clases.push({ clase: 'A', desc: 'Sólidos (madera, papel, tela)', color: 'bg-green-500/20 text-green-400 border border-green-500/30' });
+      }
+
+      // Calcular cantidad de extintores
+      const areaPorExtintor = riesgoValor === 'bajo' ? 200 : (riesgoValor === 'medio' ? 150 : 100);
+      let cantidadExtintores = Math.max(1, Math.ceil(area / areaPorExtintor));
+      
+      // Ajustar por zonas
+      cantidadExtintores = Math.max(cantidadExtintores, zonas);
+
+      // Ajustar por pisos
+      const extintoresPorPiso = Math.max(1, Math.ceil(cantidadExtintores / pisos));
+
+      // Construir tipos de extintores recomendados
+      const extintoresRecomendados = [];
+      
+      // Extintor ABC (polvo químico seco) - siempre recomendado
+      extintoresRecomendados.push({
+        tipo: 'ABC - Polvo Químico Seco',
+        capacidad: '20 lbs',
+        cantidad: cantidadExtintores,
+        desc: 'Multipropósito para fuegos clase A, B y C',
+        icon: 'fa-fire-extinguisher'
+      });
+
+      // Extintor CO2 para equipos eléctricos
+      if (tieneElectrico || tipo === 'oficina') {
+        extintoresRecomendados.push({
+          tipo: 'CO₂ - Dióxido de Carbono',
+          capacidad: '10 lbs',
+          cantidad: Math.max(1, Math.ceil(cantidadExtintores * 0.4)),
+          desc: 'Para equipos eléctricos y líquidos inflamables',
+          icon: 'fa-wind'
+        });
+      }
+
+      // Extintor K para cocinas
+      if (tieneCocina || tipo === 'restaurante' || tipo === 'cocina') {
+        extintoresRecomendados.push({
+          tipo: 'Clase K - Aceites y Grasas',
+          capacidad: '6L',
+          cantidad: Math.max(1, Math.ceil(cantidadExtintores * 0.3)),
+          desc: 'Especial para cocinas y grasas vegetales/animales',
+          icon: 'fa-utensils'
+        });
+      }
+
+      // Riesgos detectados
+      const riesgos = [];
+      if (tieneCocina) riesgos.push({ texto: 'Cocina / Fuente de calor', color: 'bg-orange-500/20 text-orange-400 border border-orange-500/30' });
+      if (tieneInflamable) riesgos.push({ texto: 'Líquidos inflamables', color: 'bg-red-500/20 text-red-400 border border-red-500/30' });
+      if (tieneElectrico) riesgos.push({ texto: 'Equipos eléctricos', color: 'bg-blue-500/20 text-blue-400 border border-blue-500/30' });
+      if (tieneQuimicos) riesgos.push({ texto: 'Productos químicos', color: 'bg-purple-500/20 text-purple-400 border border-purple-500/30' });
+      if (tipo === 'bodega' || tipo === 'industria') riesgos.push({ texto: 'Almacenamiento de materiales', color: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' });
+      if (tipo === 'taller') riesgos.push({ texto: 'Taller / Maquinaria', color: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30' });
+      
+      if (riesgos.length === 0) {
+        riesgos.push({ texto: 'Riesgo general de incendio', color: 'bg-gray-500/20 text-gray-400 border border-gray-500/30' });
+      }
+
+      // Ubicación sugerida
+      const ubicacion = [];
+      for (let i = 1; i <= Math.min(pisos, 5); i++) {
+        const extPorPiso = Math.max(1, Math.ceil(cantidadExtintores / pisos));
+        ubicacion.push(`Piso ${i}: ${extPorPiso} extintor(es) estratégicamente ubicados cada ${riesgoValor === 'bajo' ? '20' : (riesgoValor === 'medio' ? '15' : '10')} metros de recorrido`);
+      }
+
+      // Resumen
+      let resumen = `Para tu ${tipo} de ${area}m² con ${pisos} piso(s) y nivel de riesgo ${riesgoInfo.label.toLowerCase()}, `;
+      resumen += `se recomienda un total de ${cantidadExtintores} extintores distribuidos en ${zonas} zona(s). `;
+      resumen += `La distribución sugerida es de aproximadamente ${extintoresPorPiso} extintores por piso.`;
+
+      // --- PINTAR RESULTADOS ---
+      // Badge riesgo
+      resultRiesgoBadge.textContent = `Nivel ${riesgoInfo.label}`;
+      resultRiesgoBadge.className = `text-xs font-700 px-4 py-1.5 rounded-full uppercase tracking-wider ${riesgoInfo.color}`;
+
+      // Resumen
+      resultResumen.textContent = resumen;
+
+      // Riesgos
+      resultRiesgos.innerHTML = riesgos.map(r => 
+        `<span class="px-3 py-1.5 rounded-lg text-xs font-semibold ${r.color}">${r.texto}</span>`
+      ).join('');
+
+      // Clases de fuego
+      resultClases.innerHTML = clases.map(c =>
+        `<span class="px-4 py-2 rounded-xl text-sm font-bold ${c.color}">Clase ${c.clase} - ${c.desc}</span>`
+      ).join('');
+
+      // Extintores
+      resultExtintores.innerHTML = extintoresRecomendados.map(e =>
+        `<div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/10">
+          <div class="w-12 h-12 bg-flame/10 rounded-xl flex items-center justify-center text-flame text-xl flex-shrink-0">
+            <i class="fas ${e.icon}"></i>
+          </div>
+          <div class="flex-grow">
+            <div class="flex items-center gap-3">
+              <span class="text-white font-semibold">${e.tipo}</span>
+              <span class="text-xs bg-white/10 px-2 py-0.5 rounded-full text-white/60">${e.capacidad}</span>
+            </div>
+            <p class="text-white/40 text-xs mt-0.5">${e.desc}</p>
+          </div>
+          <div class="text-right">
+            <span class="text-white font-bold text-lg">${e.cantidad}</span>
+            <span class="text-white/40 text-xs block">unidad(es)</span>
+          </div>
+        </div>`
+      ).join('');
+
+      // Ubicación
+      resultUbicacion.innerHTML = ubicacion.map(u =>
+        `<div class="flex items-center gap-3 text-white/70 text-sm bg-white/5 rounded-xl p-3 border border-white/5">
+          <i class="fas fa-map-pin text-flame"></i>
+          <span>${u}</span>
+        </div>`
+      ).join('');
+
+      // Mostrar resultado
+      placeholder.classList.add('hidden');
+      resultContainer.classList.remove('hidden');
+    }
+
+    // Evento click del botón Calcular
+    calcBtn.addEventListener('click', calcularRecomendacion);
+
+    // Evento click del botón WhatsApp
+    waBtn.addEventListener('click', function() {
+      const tipo = document.getElementById('calc-tipo').value;
+      const area = document.getElementById('calc-area').value || '0';
+      const pisos = document.getElementById('calc-pisos').value || '1';
+      const riesgo = document.querySelector('input[name="riesgo"]:checked');
+      const riesgoLabel = riesgo ? riesgo.value : 'medio';
+      
+      // Obtener resumen del resultado
+      const resumenTexto = resultResumen.textContent || 'Recomendación técnica calculada';
+      const extintoresTexto = resultExtintores.textContent || 'Extintores recomendados';
+      
+      const mensaje = `Hola SERSIG DEL CARIBE SAS,%0A%0A📋 *Solicitud de cotización desde la Calculadora Inteligente*%0A%0A📌 *Tipo de establecimiento:* ${tipo}%0A📐 *Área:* ${area} m²%0A🏗️ *Pisos:* ${pisos}%0A⚠️ *Nivel de riesgo:* ${riesgoLabel}%0A%0A📊 *Recomendación técnica:*%0A${resumenTexto}%0A%0A🧯 *Extintores sugeridos:*%0A${extintoresTexto}%0A%0A💬 *Por favor, envíenme una cotización formal para estos requerimientos.*%0A%0A¡Gracias!`;
+      
+      window.open(`https://wa.me/573115344811?text=${mensaje}`, '_blank');
+    });
+
+    // Permitir calcular con Enter en los campos
+    document.querySelectorAll('#calculadora input, #calculadora select').forEach(el => {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          calcBtn.click();
+        }
+      });
+    });
+
   });
 
   // Lógica del Carrusel de Testimonios INFINITO
@@ -911,30 +1129,9 @@
     const slides = track.children;
     const totalSlides = slides.length;
     let slidesToShow = 3;
-    let currentIndex = totalSlides; // Empezamos desde el primer clon del inicio
+    let currentIndex = totalSlides;
     let slideWidth = 0;
     let isTransitioning = false;
-
-    // Clonar los slides para el efecto infinito
-    function setupInfiniteCarousel() {
-      // Clonar los primeros slidesToShow elementos al final
-      for (let i = 0; i < slidesToShow; i++) {
-        const cloneEnd = slides[i].cloneNode(true);
-        track.appendChild(cloneEnd);
-      }
-      
-      // Clonar los últimos slidesToShow elementos al inicio
-      for (let i = totalSlides - 1; i >= totalSlides - slidesToShow; i--) {
-        const cloneStart = slides[i].cloneNode(true);
-        track.insertBefore(cloneStart, track.firstChild);
-      }
-      
-      // Actualizar el total de slides después de clonar
-      updateSlideWidth();
-      // Posicionar en el primer slide real
-      track.style.transition = 'none';
-      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    }
 
     function updateSlideWidth() {
       if (track.children.length > 0) {
@@ -950,32 +1147,42 @@
       } else {
         slidesToShow = 3;
       }
-      
-      // Reconstruir el carrusel con los nuevos clones
       resetCarousel();
     }
 
     function resetCarousel() {
-      // Eliminar todos los clones existentes
       const allSlides = track.querySelectorAll('.flex-shrink-0');
       const originalSlides = [];
       
-      // Guardar solo los originales (los primeros totalSlides)
       for (let i = slidesToShow; i < slidesToShow + totalSlides; i++) {
         if (allSlides[i]) {
           originalSlides.push(allSlides[i].cloneNode(true));
         }
       }
       
-      // Limpiar el track
       track.innerHTML = '';
-      
-      // Reinsertar los originales
       originalSlides.forEach(slide => track.appendChild(slide));
-      
-      // Reconfigurar
       setupInfiniteCarousel();
       currentIndex = slidesToShow;
+      updateSlideWidth();
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    function setupInfiniteCarousel() {
+      const currentSlides = track.children;
+      const total = currentSlides.length;
+      
+      for (let i = 0; i < slidesToShow; i++) {
+        const cloneEnd = currentSlides[i].cloneNode(true);
+        track.appendChild(cloneEnd);
+      }
+      
+      for (let i = total - 1; i >= total - slidesToShow; i--) {
+        const cloneStart = currentSlides[i].cloneNode(true);
+        track.insertBefore(cloneStart, track.firstChild);
+      }
+      
       updateSlideWidth();
       track.style.transition = 'none';
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
@@ -993,7 +1200,6 @@
     function handleInfiniteScroll() {
       const maxIndex = totalSlides + slidesToShow - 1;
       
-      // Si llegamos al final de los clones, saltar al inicio real
       if (currentIndex > maxIndex) {
         currentIndex = slidesToShow;
         moveCarousel(true);
@@ -1002,7 +1208,6 @@
         }, 50);
       }
       
-      // Si llegamos al inicio de los clones, saltar al final real
       if (currentIndex < slidesToShow) {
         currentIndex = maxIndex - (slidesToShow - 1);
         moveCarousel(true);
@@ -1031,7 +1236,6 @@
       moveCarousel();
     });
 
-    // Auto-play opcional
     let autoplayInterval = setInterval(() => {
       if (!isTransitioning) {
         isTransitioning = true;
@@ -1040,20 +1244,20 @@
       }
     }, 4000);
 
-    // Pausar autoplay al hacer hover
     const carouselContainer = document.getElementById('testimonial-carousel');
-    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-    carouselContainer.addEventListener('mouseleave', () => {
-      autoplayInterval = setInterval(() => {
-        if (!isTransitioning) {
-          isTransitioning = true;
-          currentIndex++;
-          moveCarousel();
-        }
-      }, 4000);
-    });
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+      carouselContainer.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+          if (!isTransitioning) {
+            isTransitioning = true;
+            currentIndex++;
+            moveCarousel();
+          }
+        }, 4000);
+      });
+    }
 
-    // Actualizar slidesToShow al redimensionar la ventana
     let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
@@ -1062,12 +1266,9 @@
       }, 250);
     });
 
-    // Inicializar
     setupInfiniteCarousel();
     track.style.transition = 'none';
     track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    
-    // Forzar un reflow y luego habilitar la transición
     track.offsetHeight;
     track.style.transition = 'transform 0.5s ease-in-out';
   });
@@ -1084,7 +1285,7 @@
     });
   }
 
-  // Mobile accordion (Nosotros / Servicios / Capacitaciones)
+  // Mobile accordion
   document.querySelectorAll('.mobile-accordion-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       const content = btn.nextElementSibling;
@@ -1098,6 +1299,17 @@
       }
     });
   });
+
+  // Añadir animación a los radio buttons de riesgo
+  document.querySelectorAll('.risk-option input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.risk-btn').forEach(btn => btn.classList.remove('checked'));
+      if (this.checked) {
+        this.closest('.risk-option').querySelector('.risk-btn').classList.add('checked');
+      }
+    });
+  });
+
 </script>
 
 <!-- ===== FLOATING CALCULATOR BUTTON ===== -->
